@@ -2,20 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMove : MonoBehaviour
+public class Player : Unit
 {
-
-    public float movePower = 1f;
-    public float jumpPower = 1f;
-
-    Rigidbody2D rigid;
-
-    Vector3 movement;
     bool isJumping = false;
 
     void Start()
     {
-        rigid = gameObject.GetComponent<Rigidbody2D>();
+
     }
 
     // Update is called once per frame
@@ -33,7 +26,6 @@ public class PlayerMove : MonoBehaviour
         Move();
         Jump();
     }
-
     void Move()
     {
         Vector3 moveVelocity = Vector3.zero;
@@ -49,8 +41,7 @@ public class PlayerMove : MonoBehaviour
 
         transform.position += moveVelocity * movePower * Time.deltaTime;
     }
-
-    void Jump()
+   void Jump()
     {
         if (!isJumping)
             return;
