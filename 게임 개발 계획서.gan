@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2022-02-12" view-index="0" gantt-divider-location="300" resource-divider-location="300" version="3.1.3103" locale="ko_KR">
+<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2022-01-20" view-index="0" gantt-divider-location="354" resource-divider-location="300" version="3.1.3103" locale="ko_KR">
     <description/>
     <view zooming-state="default:0" id="gantt-chart">
-        <field id="tpd3" name="이름" width="167" order="0"/>
-        <field id="tpd4" name="시작일" width="65" order="1"/>
-        <field id="tpd5" name="종료일" width="64" order="2"/>
+        <field id="tpd3" name="이름" width="180" order="0"/>
+        <field id="tpd4" name="시작일" width="78" order="1"/>
+        <field id="tpd5" name="종료일" width="77" order="2"/>
         <timeline>
-            <![CDATA[13,15,108,1,30,48,41,61,94,51,7,10,47,56,43,36,66,101]]>
+            <![CDATA[47,13,43,94,10,101,108,30,61,56,15,7,1,48,51,41,36,66]]>
         </timeline>
     </view>
     <view id="resource-table">
