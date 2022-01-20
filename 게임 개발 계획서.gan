@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2022-02-23" view-index="0" gantt-divider-location="354" resource-divider-location="300" version="3.1.3103" locale="ko_KR">
+<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2022-01-08" view-index="0" gantt-divider-location="354" resource-divider-location="300" version="3.1.3103" locale="ko_KR">
     <description/>
     <view zooming-state="default:0" id="gantt-chart">
-        <field id="tpd3" name="이름" width="180" order="0"/>
-        <field id="tpd4" name="시작일" width="78" order="1"/>
-        <field id="tpd5" name="종료일" width="77" order="2"/>
+        <field id="tpd3" name="이름" width="185" order="0"/>
+        <field id="tpd4" name="시작일" width="83" order="1"/>
+        <field id="tpd5" name="종료일" width="82" order="2"/>
         <timeline>
-            <![CDATA[41,66,1,36,7,94,48,13,15,10,61,56,47,101,51,108,30,43]]>
+            <![CDATA[7,108,1,36,94,47,43,10,13,51,30,48,66,61,15,56,41,101]]>
         </timeline>
     </view>
     <view id="resource-table">
@@ -43,7 +43,10 @@
         <task id="7" name="플레이어" color="#8cb6ce" meeting="false" start="2022-01-24" duration="5" complete="0" thirdDate="2022-01-17" thirdDate-constraint="0" expand="true">
             <task id="108" name="클래스 구성 - Unit" color="#8cb6ce" meeting="false" start="2022-01-24" duration="1" complete="0" thirdDate="2022-02-14" thirdDate-constraint="0" expand="true">
                 <notes>
-                    <![CDATA[움직일 수 있는 오브젝트 구상]]>
+                    <![CDATA[움직임 가능
+가만히 있을때 Idle 애니메이션으로 전환
+움직일때 Move 애니메이션으로 전환
+대상과 부딪혔을때 체력 소모]]>
                 </notes>
             </task>
             <task id="34" name="플레이어 이동" color="#8cb6ce" meeting="false" start="2022-01-24" duration="1" complete="0" thirdDate="2022-01-17" thirdDate-constraint="0" expand="true"/>
@@ -57,18 +60,43 @@
             <task id="48" name="Singleton을 활용하여 다양한 자원들 관리" color="#8cb6ce" meeting="false" start="2022-02-02" duration="3" complete="0" thirdDate="2022-01-10" thirdDate-constraint="0" expand="true"/>
         </task>
         <task id="10" name="아이템" color="#8cb6ce" meeting="false" start="2022-02-07" duration="5" complete="0" thirdDate="2022-01-24" thirdDate-constraint="0" expand="true">
-            <task id="112" name="클래스 - Item" color="#8cb6ce" meeting="false" start="2022-02-07" duration="1" complete="0" thirdDate="2022-02-14" thirdDate-constraint="0" expand="true"/>
-            <task id="119" name="클래스 - SItem" color="#8cb6ce" meeting="false" start="2022-02-07" duration="1" complete="0" thirdDate="2022-02-14" thirdDate-constraint="0" expand="true"/>
-            <task id="114" name="클래스 - EItem" color="#8cb6ce" meeting="false" start="2022-02-07" duration="1" complete="0" thirdDate="2022-02-14" thirdDate-constraint="0" expand="true"/>
+            <task id="112" name="클래스 - Item" color="#8cb6ce" meeting="false" start="2022-02-07" duration="1" complete="0" thirdDate="2022-02-14" thirdDate-constraint="0" expand="true">
+                <notes>
+                    <![CDATA[플레이어와 부딪혔을때 사라짐]]>
+                </notes>
+            </task>
+            <task id="119" name="클래스 - SItem" color="#8cb6ce" meeting="false" start="2022-02-07" duration="1" complete="0" thirdDate="2022-02-14" thirdDate-constraint="0" expand="true">
+                <notes>
+                    <![CDATA[일회성 아이템
+플레이어와 부딪혔을때 만약 이미 획득한 아이템이였다면
+해당 위치에 대체]]>
+                </notes>
+            </task>
+            <task id="114" name="클래스 - EItem" color="#8cb6ce" meeting="false" start="2022-02-07" duration="1" complete="0" thirdDate="2022-02-14" thirdDate-constraint="0" expand="true">
+                <notes>
+                    <![CDATA[영구적 아이템
+플레이어와 부딪혔을때 그 효과가 영구적으로 적용]]>
+                </notes>
+            </task>
             <task id="41" name="아이템 획득 구현" color="#8cb6ce" meeting="false" start="2022-02-07" duration="2" complete="0" thirdDate="2022-01-31" thirdDate-constraint="0" expand="true"/>
             <task id="61" name="FSM을 활용하여 획득 아이템마다 다른 효과 구현" color="#8cb6ce" meeting="false" start="2022-02-09" duration="3" complete="0" thirdDate="2022-01-19" thirdDate-constraint="0" expand="true"/>
         </task>
         <task id="15" name="지형" color="#8cb6ce" meeting="false" start="2022-02-14" duration="5" complete="0" thirdDate="2022-02-07" thirdDate-constraint="0" expand="true">
-            <task id="47" name="지형 구조물 설치" color="#8cb6ce" meeting="false" start="2022-02-14" duration="2" complete="0" thirdDate="2022-02-07" thirdDate-constraint="0" expand="true"/>
-            <task id="66" name="Polymorphism을 활용하여 지형마다 다른 효과 적용" color="#8cb6ce" meeting="false" start="2022-02-16" duration="3" complete="0" thirdDate="2022-01-19" thirdDate-constraint="0" expand="true"/>
+            <task id="47" name="클래스 - Platform" color="#8cb6ce" meeting="false" start="2022-02-14" duration="2" complete="0" thirdDate="2022-02-07" thirdDate-constraint="0" expand="true">
+                <notes>
+                    <![CDATA[Unit이라는 클래스가 바닥에 닿았을때
+그 클래스의 애니메이션을 Jump → Idle/Walk로 바꿔줌]]>
+                </notes>
+            </task>
+            <task id="124" name="지형 구조물 설치" color="#8cb6ce" meeting="false" start="2022-02-14" duration="2" complete="0" thirdDate="2022-02-07" thirdDate-constraint="0" expand="true"/>
+            <task id="121" name="Polymorphism을 활용하여 지형마다 다른 효과 적용" color="#8cb6ce" meeting="false" start="2022-02-16" duration="3" complete="0" thirdDate="2022-01-19" thirdDate-constraint="0" expand="true"/>
         </task>
         <task id="68" name="몬스터" color="#8cb6ce" meeting="false" start="2022-02-14" duration="10" complete="0" thirdDate="2022-01-19" thirdDate-constraint="0" expand="true">
-            <task id="111" name="클래스 - Unit" meeting="false" start="2022-02-14" duration="1" complete="0" expand="true"/>
+            <task id="111" name="클래스 - Monster" color="#8cb6ce" meeting="false" start="2022-02-14" duration="1" complete="0" thirdDate="2022-02-14" thirdDate-constraint="0" expand="true">
+                <notes>
+                    <![CDATA[플레이어가 발사한 투사체에 맞을경우 체력 소모.]]>
+                </notes>
+            </task>
             <task id="94" name="몬스터 이동" color="#8cb6ce" meeting="false" start="2022-02-21" duration="2" complete="0" thirdDate="2022-01-19" thirdDate-constraint="0" expand="true"/>
             <task id="101" name="Polymorphism를 활용하여 몬스터의 특성 관리" color="#8cb6ce" meeting="false" start="2022-02-23" duration="3" complete="0" thirdDate="2022-01-27" thirdDate-constraint="0" expand="true"/>
         </task>
