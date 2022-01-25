@@ -10,7 +10,7 @@ public class Player : Unit
     }
 
     // Update is called once per frame
-    void Update()
+    void Update() 
     {
         //점프
         if (Input.GetButtonDown("Jump") && !anim.GetBool("isJumping"))
@@ -49,19 +49,26 @@ public class Player : Unit
         //착지 애니메이션 변경
         if (rigid.velocity.y < 0)
         {
-            Debug.DrawRay(rigid.position, Vector3.down, new Color(0, 1, 0, 255));
-            RaycastHit2D rayHit = Physics2D.Raycast(rigid.position, Vector3.down, 1, LayerMask.GetMask("Platform"));
-            if (rayHit.collider != null)
+            float i;
+            for (i = -0.4f; i <= 0.8; i = i+0.4f)
             {
-                if (rayHit.distance < 0.5f)
+                Vector2 velocityVec = new Vector2(rigid.position.x + i, rigid.position.y);
+                Debug.DrawRay(velocityVec, new Vector3(0, -1, 0), new Color(0, 1, 0, 255));
+                RaycastHit2D rayHit = Physics2D.Raycast(velocityVec, new Vector3(0, -1, 0), 1, LayerMask.GetMask("Platform"));
+                if (rayHit.collider != null)
                 {
-                    anim.SetBool("isJumping", false);
+                    if (rayHit.distance < 0.5f)
+                    {
+                        anim.SetBool("isJumping", false);
+                    }
                 }
             }
+            
         }
-        if ((Mathf.Abs(rigid.velocity.y) == 0) && anim.GetBool("isJumping"))
+        /*if ((Mathf.Abs(rigid.velocity.y) == 0) && anim.GetBool("isJumping"))
         {
             anim.SetBool("isJumping", false);
         }
+        */
     }
 }
