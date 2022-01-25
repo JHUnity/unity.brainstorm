@@ -43,18 +43,16 @@
         <task id="7" name="플레이어" color="#8cb6ce" meeting="false" start="2022-01-24" duration="5" complete="0" thirdDate="2022-01-17" thirdDate-constraint="0" expand="true">
             <task id="108" name="클래스 구성 - Unit" color="#8cb6ce" meeting="false" start="2022-01-24" duration="1" complete="0" thirdDate="2022-02-14" thirdDate-constraint="0" expand="true">
                 <notes>
-                    <![CDATA[움직임 가능
-가만히 있을때 Idle 애니메이션으로 전환
-움직일때 Move 애니메이션으로 전환
-대상과 부딪혔을때 체력 소모]]>
+                    <![CDATA[HP를 가진다
+최대속도를 가진다
+점프력을 가진다
+Rigidbody2D / SpriteRenderer / CapsuleCollider2D / Animator에 접근이 필요하며 초기화를 해주어야 한다.]]>
                 </notes>
             </task>
             <task id="126" name="클래스 구성 - Unit(Player)" color="#8cb6ce" meeting="false" start="2022-01-24" duration="1" complete="0" thirdDate="2022-02-14" thirdDate-constraint="0" expand="true">
                 <notes>
-                    <![CDATA[움직임 가능
-가만히 있을때 Idle 애니메이션으로 전환
-움직일때 Move 애니메이션으로 전환
-대상과 부딪혔을때 체력 소모]]>
+                    <![CDATA[조작키를 통해 이동 / 점프 가능
+이동과 점프를 할때마다 애니메이션 변경]]>
                 </notes>
             </task>
             <task id="34" name="플레이어 이동" color="#8cb6ce" meeting="false" start="2022-01-24" duration="1" complete="0" thirdDate="2022-01-17" thirdDate-constraint="0" expand="true"/>
@@ -64,7 +62,9 @@
             </task>
         </task>
         <task id="13" name="UI" color="#8cb6ce" meeting="false" start="2022-01-31" duration="5" complete="0" thirdDate="2022-01-31" thirdDate-constraint="0" expand="true">
-            <task id="43" name="게임 매니저 제작" color="#8cb6ce" meeting="false" start="2022-01-31" duration="2" complete="0" thirdDate="2022-01-24" thirdDate-constraint="0" expand="true"/>
+            <task id="43" name="게임 매니저 제작" color="#8cb6ce" meeting="false" start="2022-01-31" duration="2" complete="0" thirdDate="2022-01-24" thirdDate-constraint="0" expand="true">
+                <task id="133" name="점수 / 게임오버 / 게임 클리어 구현" color="#8cb6ce" meeting="false" start="2022-01-31" duration="2" complete="0" thirdDate="2022-01-10" thirdDate-constraint="0" expand="true"/>
+            </task>
             <task id="48" name="Singleton을 활용하여 다양한 자원들 관리" color="#8cb6ce" meeting="false" start="2022-02-02" duration="3" complete="0" thirdDate="2022-01-10" thirdDate-constraint="0" expand="true"/>
         </task>
         <task id="10" name="아이템" color="#8cb6ce" meeting="false" start="2022-02-07" duration="5" complete="0" thirdDate="2022-01-24" thirdDate-constraint="0" expand="true">
@@ -90,12 +90,6 @@
             <task id="61" name="FSM을 활용하여 획득 아이템마다 다른 효과 구현" color="#8cb6ce" meeting="false" start="2022-02-09" duration="3" complete="0" thirdDate="2022-01-19" thirdDate-constraint="0" expand="true"/>
         </task>
         <task id="15" name="지형" color="#8cb6ce" meeting="false" start="2022-02-14" duration="5" complete="0" thirdDate="2022-02-07" thirdDate-constraint="0" expand="true">
-            <task id="47" name="클래스 - Platform" color="#8cb6ce" meeting="false" start="2022-02-14" duration="2" complete="0" thirdDate="2022-02-07" thirdDate-constraint="0" expand="true">
-                <notes>
-                    <![CDATA[Unit이라는 클래스가 바닥에 닿았을때
-그 클래스의 애니메이션을 Jump → Idle/Walk로 바꿔줌]]>
-                </notes>
-            </task>
             <task id="124" name="지형 구조물 설치" color="#8cb6ce" meeting="false" start="2022-02-14" duration="2" complete="0" thirdDate="2022-02-07" thirdDate-constraint="0" expand="true"/>
             <task id="121" name="Polymorphism을 활용하여 지형마다 다른 효과 적용" color="#8cb6ce" meeting="false" start="2022-02-16" duration="3" complete="0" thirdDate="2022-01-19" thirdDate-constraint="0" expand="true"/>
         </task>
