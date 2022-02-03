@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6182495780321118496}
   - component: {fileID: 212318378}
   m_Layer: 0
-  m_Name: Player_Bullet 1
+  m_Name: Player_Bullet1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -134,4 +134,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyBulletTime: 1
-  bulletSpeed: 35

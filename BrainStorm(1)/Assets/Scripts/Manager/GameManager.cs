@@ -10,13 +10,20 @@ public class GameManager : MonoBehaviour
 
     public Player player;
 
-    public int maxStageScore;
-    public int stageScore;
+    public float maxStageScore;
+    public float stageScore;
     public int SitemNumber;
     public int stageIndex;
     public int savePoint;
     public float stageTime;
 
     public Image[] UIhealth;
-    public Text UIStageScore;
+    public Text UIStageScore1;
+    public Text UIStageScore2;
+
+    void Update()
+    {
+        UIStageScore1.text = stageScore.ToString();
+        UIStageScore2.text = (stageScore / maxStageScore * 100).ToString();
+    }
 }
