@@ -5,7 +5,7 @@
         <field id="tpd4" name="시작일" width="79" order="1"/>
         <field id="tpd5" name="종료일" width="79" order="2"/>
         <timeline>
-            <![CDATA[43,13,15,41,47,56,7,1,30,94,101,61,48,36,108,10,51]]>
+            <![CDATA[43,1,56,51,13,30,36,41,7,61,94,48,101,10,15,108]]>
         </timeline>
     </view>
     <view id="resource-table">
@@ -61,11 +61,11 @@ Rigidbody2D / SpriteRenderer / CapsuleCollider2D / Animator에 접근이 필요�
                 <task id="51" name="Adv Pool System을 활용한 투사체 등을 관리" color="#8cb6ce" meeting="false" start="2022-01-26" duration="3" complete="0" thirdDate="2022-01-10" thirdDate-constraint="0" expand="true"/>
             </task>
         </task>
-        <task id="13" name="UI" color="#8cb6ce" meeting="false" start="2022-01-31" duration="5" complete="0" thirdDate="2022-01-31" thirdDate-constraint="0" expand="true">
+        <task id="13" name="게임 매니저" color="#8cb6ce" meeting="false" start="2022-01-31" duration="5" complete="0" thirdDate="2022-01-31" thirdDate-constraint="0" expand="true">
             <task id="43" name="게임 매니저 제작" color="#8cb6ce" meeting="false" start="2022-01-31" duration="2" complete="0" thirdDate="2022-01-24" thirdDate-constraint="0" expand="true">
-                <task id="133" name="점수 / 게임오버 / 게임 클리어 구현" color="#8cb6ce" meeting="false" start="2022-01-31" duration="2" complete="0" thirdDate="2022-01-10" thirdDate-constraint="0" expand="true"/>
+                <task id="133" name="점수 등의 다양한 자원들 구현" color="#8cb6ce" meeting="false" start="2022-01-31" duration="2" complete="0" thirdDate="2022-01-10" thirdDate-constraint="0" expand="true"/>
             </task>
-            <task id="48" name="Singleton을 활용하여 다양한 자원들 관리" color="#8cb6ce" meeting="false" start="2022-02-02" duration="3" complete="0" thirdDate="2022-01-10" thirdDate-constraint="0" expand="true"/>
+            <task id="48" name="게임 UI 제작" color="#8cb6ce" meeting="false" start="2022-02-02" duration="3" complete="0" thirdDate="2022-01-10" thirdDate-constraint="0" expand="true"/>
         </task>
         <task id="10" name="아이템" color="#8cb6ce" meeting="false" start="2022-02-07" duration="5" complete="0" thirdDate="2022-01-24" thirdDate-constraint="0" expand="true">
             <task id="112" name="클래스 - Item" color="#8cb6ce" meeting="false" start="2022-02-07" duration="1" complete="0" thirdDate="2022-02-14" thirdDate-constraint="0" expand="true">

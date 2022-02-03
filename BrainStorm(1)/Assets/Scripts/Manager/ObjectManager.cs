@@ -12,7 +12,7 @@ public class ObjectManager : MonoBehaviour
 
     void Awake()
     {
-        Player_Bullet1 = new GameObject[15];
+        Player_Bullet1 = new GameObject[6];
 
         Generate();
     }

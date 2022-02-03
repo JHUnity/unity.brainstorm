@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : Unit
 {
     public Transform pos;
+    public GameManager gameManager;
 
     public float coolTime;
     private float curTime;
