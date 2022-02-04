@@ -24,6 +24,6 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         UIStageScore1.text = stageScore.ToString();
-        UIStageScore2.text = (stageScore / maxStageScore * 100).ToString();
+        UIStageScore2.text = (stageScore / maxStageScore * 100) + "%".ToString();
     }
 }
