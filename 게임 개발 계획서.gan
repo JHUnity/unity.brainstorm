@@ -5,7 +5,7 @@
         <field id="tpd4" name="시작일" width="79" order="1"/>
         <field id="tpd5" name="종료일" width="79" order="2"/>
         <timeline>
-            <![CDATA[43,1,56,51,13,30,36,41,7,61,94,48,101,10,15,108]]>
+            <![CDATA[41,101,48,1,108,61,30,7,13,43,56,36,51,94,15,10]]>
         </timeline>
     </view>
     <view id="resource-table">
@@ -67,31 +67,31 @@ Rigidbody2D / SpriteRenderer / CapsuleCollider2D / Animator에 접근이 필요�
             </task>
             <task id="48" name="게임 UI 제작" color="#8cb6ce" meeting="false" start="2022-02-02" duration="3" complete="0" thirdDate="2022-01-10" thirdDate-constraint="0" expand="true"/>
         </task>
-        <task id="10" name="아이템" color="#8cb6ce" meeting="false" start="2022-02-07" duration="5" complete="0" thirdDate="2022-01-24" thirdDate-constraint="0" expand="true">
-            <task id="112" name="클래스 - Item" color="#8cb6ce" meeting="false" start="2022-02-07" duration="1" complete="0" thirdDate="2022-02-14" thirdDate-constraint="0" expand="true">
+        <task id="15" name="지형" color="#8cb6ce" meeting="false" start="2022-02-07" duration="5" complete="0" thirdDate="2022-02-07" thirdDate-constraint="0" expand="true">
+            <task id="124" name="지형 구조물 설치" color="#8cb6ce" meeting="false" start="2022-02-07" duration="2" complete="0" thirdDate="2022-02-07" thirdDate-constraint="0" expand="true"/>
+            <task id="121" name="Polymorphism을 활용하여 지형마다 다른 효과 적용" color="#8cb6ce" meeting="false" start="2022-02-09" duration="3" complete="0" thirdDate="2022-01-19" thirdDate-constraint="0" expand="true"/>
+        </task>
+        <task id="10" name="아이템" color="#8cb6ce" meeting="false" start="2022-02-14" duration="5" complete="0" thirdDate="2022-01-24" thirdDate-constraint="0" expand="true">
+            <task id="112" name="클래스 - Item" color="#8cb6ce" meeting="false" start="2022-02-14" duration="1" complete="0" thirdDate="2022-02-14" thirdDate-constraint="0" expand="true">
                 <notes>
                     <![CDATA[플레이어와 부딪혔을때 사라짐]]>
                 </notes>
             </task>
-            <task id="119" name="클래스 - Item(SItem)" color="#8cb6ce" meeting="false" start="2022-02-07" duration="1" complete="0" thirdDate="2022-02-14" thirdDate-constraint="0" expand="true">
+            <task id="119" name="클래스 - Item(SItem)" color="#8cb6ce" meeting="false" start="2022-02-14" duration="1" complete="0" thirdDate="2022-02-14" thirdDate-constraint="0" expand="true">
                 <notes>
                     <![CDATA[일회성 아이템
 플레이어와 부딪혔을때 만약 이미 획득한 아이템이였다면
 해당 위치에 대체]]>
                 </notes>
             </task>
-            <task id="114" name="클래스 - Item(EItem)" color="#8cb6ce" meeting="false" start="2022-02-07" duration="1" complete="0" thirdDate="2022-02-14" thirdDate-constraint="0" expand="true">
+            <task id="114" name="클래스 - Item(EItem)" color="#8cb6ce" meeting="false" start="2022-02-14" duration="1" complete="0" thirdDate="2022-02-14" thirdDate-constraint="0" expand="true">
                 <notes>
                     <![CDATA[영구적 아이템
 플레이어와 부딪혔을때 그 효과가 영구적으로 적용]]>
                 </notes>
             </task>
-            <task id="41" name="아이템 획득 구현" color="#8cb6ce" meeting="false" start="2022-02-07" duration="2" complete="0" thirdDate="2022-01-31" thirdDate-constraint="0" expand="true"/>
-            <task id="61" name="FSM을 활용하여 획득 아이템마다 다른 효과 구현" color="#8cb6ce" meeting="false" start="2022-02-09" duration="3" complete="0" thirdDate="2022-01-19" thirdDate-constraint="0" expand="true"/>
-        </task>
-        <task id="15" name="지형" color="#8cb6ce" meeting="false" start="2022-02-14" duration="5" complete="0" thirdDate="2022-02-07" thirdDate-constraint="0" expand="true">
-            <task id="124" name="지형 구조물 설치" color="#8cb6ce" meeting="false" start="2022-02-14" duration="2" complete="0" thirdDate="2022-02-07" thirdDate-constraint="0" expand="true"/>
-            <task id="121" name="Polymorphism을 활용하여 지형마다 다른 효과 적용" color="#8cb6ce" meeting="false" start="2022-02-16" duration="3" complete="0" thirdDate="2022-01-19" thirdDate-constraint="0" expand="true"/>
+            <task id="41" name="아이템 획득 구현" color="#8cb6ce" meeting="false" start="2022-02-14" duration="2" complete="0" thirdDate="2022-01-31" thirdDate-constraint="0" expand="true"/>
+            <task id="61" name="FSM을 활용하여 획득 아이템마다 다른 효과 구현" color="#8cb6ce" meeting="false" start="2022-02-16" duration="3" complete="0" thirdDate="2022-01-19" thirdDate-constraint="0" expand="true"/>
         </task>
         <task id="68" name="몬스터" color="#8cb6ce" meeting="false" start="2022-02-14" duration="10" complete="0" thirdDate="2022-01-19" thirdDate-constraint="0" expand="true">
             <task id="111" name="클래스 - Unit(Monster)" color="#8cb6ce" meeting="false" start="2022-02-14" duration="1" complete="0" thirdDate="2022-02-14" thirdDate-constraint="0" expand="true">

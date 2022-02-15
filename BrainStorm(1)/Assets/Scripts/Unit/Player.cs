@@ -13,6 +13,10 @@ public class Player : Unit
     public float bulletSpeed;
     int bulletDir = 1;
 
+    public bool inputLeft = false;
+    public bool inputRight = false;
+    public bool inputJump = false;
+
     public ObjectManager objManager;
 
     void Update() 
@@ -63,6 +67,7 @@ public class Player : Unit
         //점프
         if (Input.GetButtonDown("Jump") && !anim.GetBool("isJumping"))
         {
+            inputJump = false;
             rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
             anim.SetBool("isJumping", true);
         }
@@ -103,5 +108,26 @@ public class Player : Unit
             curTime = coolTime;
         }
         curTime -= Time.deltaTime;
+    }
+
+    public void LeftDown()
+    {
+        inputLeft = true;
+    }
+    public void LeftUp()
+    {
+        inputLeft = false;
+    }
+    public void RightDown()
+    {
+        inputRight = true;
+    }
+    public void RightUp()
+    {
+        inputRight = false;
+    }
+    public void JumpDown()
+    {
+        inputJump = true;
     }
 }
