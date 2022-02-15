@@ -4,5 +4,15 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            DestroyItem();
+        }
+    }
+    void DestroyItem()
+    {
+        gameObject.SetActive(false);
+    }
 }
