@@ -5,7 +5,7 @@
         <field id="tpd4" name="시작일" width="79" order="1"/>
         <field id="tpd5" name="종료일" width="79" order="2"/>
         <timeline>
-            <![CDATA[41,101,48,1,108,61,30,7,13,43,56,36,51,94,15,10]]>
+            <![CDATA[7,10,61,15,43,108,41,94,13,48,30,101,36,51,1,56]]>
         </timeline>
     </view>
     <view id="resource-table">
@@ -93,8 +93,8 @@ Rigidbody2D / SpriteRenderer / CapsuleCollider2D / Animator에 접근이 필요�
             <task id="41" name="아이템 획득 구현" color="#8cb6ce" meeting="false" start="2022-02-14" duration="2" complete="0" thirdDate="2022-01-31" thirdDate-constraint="0" expand="true"/>
             <task id="61" name="FSM을 활용하여 획득 아이템마다 다른 효과 구현" color="#8cb6ce" meeting="false" start="2022-02-16" duration="3" complete="0" thirdDate="2022-01-19" thirdDate-constraint="0" expand="true"/>
         </task>
-        <task id="68" name="몬스터" color="#8cb6ce" meeting="false" start="2022-02-14" duration="10" complete="0" thirdDate="2022-01-19" thirdDate-constraint="0" expand="true">
-            <task id="111" name="클래스 - Unit(Monster)" color="#8cb6ce" meeting="false" start="2022-02-14" duration="1" complete="0" thirdDate="2022-02-14" thirdDate-constraint="0" expand="true">
+        <task id="68" name="몬스터" color="#8cb6ce" meeting="false" start="2022-02-21" duration="5" complete="0" thirdDate="2022-01-19" thirdDate-constraint="0" expand="true">
+            <task id="111" name="클래스 - Unit(Monster)" color="#8cb6ce" meeting="false" start="2022-02-21" duration="1" complete="0" thirdDate="2022-02-14" thirdDate-constraint="0" expand="true">
                 <notes>
                     <![CDATA[플레이어가 발사한 투사체에 맞을경우 체력 소모.]]>
                 </notes>

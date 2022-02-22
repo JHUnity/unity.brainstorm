@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 8860280841248490725}
   - component: {fileID: 4336223645365144171}
   - component: {fileID: 438115256}
-  - component: {fileID: 649460416}
+  - component: {fileID: 1360423419766730285}
   m_Layer: 9
-  m_Name: SItem_Key1
+  m_Name: SItem_Key2
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 6267224251674347783, guid: 91c179947bd2dde4785bcbd9224d85d2,
+  m_Sprite: {fileID: -269911608472993164, guid: 91c179947bd2dde4785bcbd9224d85d2,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -110,7 +110,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &649460416
+--- !u!114 &1360423419766730285
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5841919880990142508}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c8daef2dc051ab44a5442cfad0dc3b3, type: 3}
+  m_Script: {fileID: 11500000, guid: dd8f1ca658570b54f89bb701632094af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}

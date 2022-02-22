@@ -17,8 +17,8 @@ public class Unit : MonoBehaviour
     void Awake()
     {
         rigid = gameObject.GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        capsuleCollider = GetComponent<CapsuleCollider2D>();
-        anim = GetComponent<Animator>();
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        capsuleCollider = gameObject.GetComponent<CapsuleCollider2D>();
+        anim = gameObject.GetComponent<Animator>();
     }
 }

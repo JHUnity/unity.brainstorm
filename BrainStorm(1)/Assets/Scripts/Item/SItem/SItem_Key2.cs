@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SItem_Key1 : SItem
+public class SItem_Key2 : SItem
 {
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -11,11 +11,9 @@ public class SItem_Key1 : SItem
             if (collision.gameObject.tag == "Player")
             {
                 SitemGet();
-                gameManager.SitemNumber = 1;
+                gameManager.SitemNumber = 2;
                 DestroyItem();
             }
         }
     }
-
-
 }

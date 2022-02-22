@@ -11,12 +11,6 @@ public class Bullet : MonoBehaviour
         Invoke("DestroyBullet", destroyBulletTime);
     }
 
-
-    void Update()
-    {
-
-    }
-
     void DestroyBullet()
     {
         gameObject.SetActive(false);

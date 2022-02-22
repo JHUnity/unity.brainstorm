@@ -9,21 +9,37 @@ public class GameManager : MonoBehaviour
     public int bigStar;
 
     public Player player;
+    public ObjectManager objManager;
 
     public float maxStageScore;
     public float stageScore;
-    public int SitemNumber;
     public int stageIndex;
     public int savePoint;
+    public float itemActive;
+    public int SitemNumber;
     public float stageTime;
 
-    public Image[] UIhealth;
-    public Text UIStageScore1;
-    public Text UIStageScore2;
+    void Start()
+    {
+        player = GameObject.Find("Player").GetComponent<Player>();
+        //gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        objManager = GameObject.Find("ObjectManager").GetComponent<ObjectManager>();
+        //uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
+    }
 
     void Update()
     {
-        UIStageScore1.text = stageScore.ToString();
-        UIStageScore2.text = (stageScore / maxStageScore * 100) + "%".ToString();
+        ItemActiveSet();
     }
+
+    void ItemActiveSet()
+    {
+        if (itemActive > 0)
+        {
+            itemActive--;
+        }
+    }
+
+    
+
 }
