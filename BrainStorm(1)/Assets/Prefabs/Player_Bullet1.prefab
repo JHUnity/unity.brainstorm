@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 3838499942090006953}
   - component: {fileID: 6182495780321118496}
   - component: {fileID: 212318378}
+  - component: {fileID: 349276336}
   m_Layer: 0
   m_Name: Player_Bullet1
-  m_TagString: Untagged
+  m_TagString: PlayerBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -133,4 +134,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b4249a9192d58f40814bc1fe14bdf62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyBulletTime: 1
+  destroyBulletTime: 90
+  destroyBullet: 0
+  rigid: {fileID: 0}
+  anim: {fileID: 0}
+--- !u!95 &349276336
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4772527291256486975}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 16300cd41ed9e6a4abb698f759c2e794, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

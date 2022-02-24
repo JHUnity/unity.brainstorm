@@ -6,8 +6,6 @@ public class Player : Unit
 {
     public Transform pos;
     public Transform itemDrop;
-    public GameManager gameManager;
-    public ObjectManager objManager;
 
     public float coolTime;
     private float curTime;
@@ -21,14 +19,6 @@ public class Player : Unit
     public bool inputAttack = false;
 
     public bool EItem_Gun = false;
-
-    void Start()
-    {
-        //player = GameObject.Find("Player").GetComponent<Player>();
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        objManager = GameObject.Find("ObjectManager").GetComponent<ObjectManager>();
-        //uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
-    }
 
     void Update() 
     {
@@ -82,6 +72,7 @@ public class Player : Unit
     {
         if (inputJump == true & !anim.GetBool("isJumping"))
         {
+            GetComponent<CapsuleCollider2D>().isTrigger = true;
             rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
             anim.SetBool("isJumping", true);
         }
@@ -160,12 +151,13 @@ public class Player : Unit
     {
         if (rigid.velocity.y < 0)
         {
+            GetComponent<CapsuleCollider2D>().isTrigger = false;
             float i;
             for (i = -0.4f; i <= 0.8; i = i + 0.4f)
             {
                 Vector2 velocityVec = new Vector2(rigid.position.x + i, rigid.position.y);
                 Debug.DrawRay(velocityVec, new Vector3(0, -1, 0), new Color(0, 1, 0, 255));
-                RaycastHit2D rayHit = Physics2D.Raycast(velocityVec, new Vector3(0, -1, 0), 1, LayerMask.GetMask("Platform"));
+                RaycastHit2D rayHit = Physics2D.Raycast(velocityVec, new Vector3(0, -1, 0), 1, LayerMask.GetMask("PlatformColider", "Monster", "Block"));
                 if (rayHit.collider != null)
                 {
                     if (rayHit.distance <= 0.5f)
@@ -181,6 +173,33 @@ public class Player : Unit
         {
             anim.SetBool("isJumping", false);
         }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Monster")
+        {
+            OnDamaged(collision.transform.position);
+        }
+    }
+    void OnDamaged(Vector2 targetPos)
+    {
+        hp = hp - 1;
+
+        gameObject.layer = 9;
+        spriteRenderer.color = new Color(1, 1, 1, 0.4f);
+
+        int dirc = transform.position.x - targetPos.x > 0 ? 1 : -1;
+        rigid.AddForce(new Vector2(dirc, 1) * 5, ForceMode2D.Impulse);
+        anim.SetTrigger("isDamaged");
+
+        Invoke("OffDamaged", 1);
+    }
+
+    void OffDamaged()
+    {
+        gameObject.layer = 8;
+        spriteRenderer.color = new Color(1, 1, 1, 1);
     }
 
     public void LeftDown()

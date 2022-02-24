@@ -6,9 +6,9 @@ public class SItem_Key1 : SItem
 {
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (gameManager.itemActive == 0)
+        if (collision.gameObject.tag == "Player")
         {
-            if (collision.gameObject.tag == "Player")
+            if (gameManager.itemActive == 0)
             {
                 SitemGet();
                 gameManager.SitemNumber = 1;
@@ -16,6 +16,4 @@ public class SItem_Key1 : SItem
             }
         }
     }
-
-
 }

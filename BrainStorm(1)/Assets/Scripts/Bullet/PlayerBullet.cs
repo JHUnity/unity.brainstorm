@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class PlayerBullet : Bullet
 {
-    void Update()
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if (collision.gameObject.tag == "Monster")
+        {
+            ExplosionBullet();
+        }
     }
 }

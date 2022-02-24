@@ -14,11 +14,22 @@ public class Unit : MonoBehaviour
     public Animator anim;
     public Vector3 movement;
 
+    public GameManager gameManager;
+    public ObjectManager objManager;
+
     void Awake()
     {
         rigid = gameObject.GetComponent<Rigidbody2D>();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         capsuleCollider = gameObject.GetComponent<CapsuleCollider2D>();
         anim = gameObject.GetComponent<Animator>();
+    }
+
+    void Start()
+    {
+        //player = GameObject.Find("Player").GetComponent<Player>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        objManager = GameObject.Find("ObjectManager").GetComponent<ObjectManager>();
+        //uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
     }
 }

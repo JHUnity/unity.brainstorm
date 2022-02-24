@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Item
+  - PlayerBullet
+  - Monster
   layers:
   - Default
   - TransparentFX
@@ -14,14 +16,14 @@ TagManager:
   - UI
   - 
   - 
-  - Platform
-  - Item
   - Player
-  - 
-  - 
-  - 
-  - 
-  - 
+  - PlayerInvincible
+  - Platform
+  - PlatformColider
+  - Spike
+  - Block
+  - Monster
+  - Item
   - 
   - 
   - 
