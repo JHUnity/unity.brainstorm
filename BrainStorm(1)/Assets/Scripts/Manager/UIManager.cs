@@ -39,7 +39,7 @@ public class UIManager : MonoBehaviour
         Score();
     }
 
-    void StageScore()
+    public void StageScore()
     {
         UIStageScore1.text = "Score : " + (gameManager.stageScore).ToString();
         UIStageScore2.text = "Achievement : " + (gameManager.stageScore / gameManager.maxStageScore * 100) + "%".ToString();

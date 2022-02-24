@@ -59,6 +59,7 @@ public class ObjectManager : MonoBehaviour
             Player_Bullet1[index].SetActive(false);
         }
 
+        /*
         for (int index = 0; index < SItem_Key1.Length; index++)
         {
             SItem_Key1[index] = Instantiate(SItem_Key1Prefab);
@@ -92,11 +93,32 @@ public class ObjectManager : MonoBehaviour
             tmp.uiManager = uiManager;
         }
 
+        
         for (int index = 0; index < EItem_Feather.Length; index++)
         {
             EItem_Feather[index] = Instantiate(EItem_FeatherPrefab);
             EItem_Feather[index].SetActive(false);
             EItem_Feather tmp = EItem_Feather[index].GetComponent<EItem_Feather>();
+            tmp.player = player;
+            tmp.gameManager = gameManager;
+            tmp.objManager = objManager;
+            tmp.uiManager = uiManager;
+        }
+        */
+
+        ItemCreate<SItem_Key1>(SItem_Key1, SItem_Key1Prefab);
+        ItemCreate<SItem_Key2>(SItem_Key2, SItem_Key2Prefab);
+        ItemCreate<EItem_Gun>(EItem_Gun, EItem_GunPrefab);
+        ItemCreate<EItem_Feather>(EItem_Feather, EItem_FeatherPrefab);
+    }
+
+    void ItemCreate<T>(GameObject[] item, GameObject pref) where T : Item
+    {
+        for (int index = 0; index < EItem_Feather.Length; index++)
+        {
+            item[index] = Instantiate(pref);
+            item[index].SetActive(false);
+            T tmp = item[index].GetComponent<T>();
             tmp.player = player;
             tmp.gameManager = gameManager;
             tmp.objManager = objManager;

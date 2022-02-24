@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b4249a9192d58f40814bc1fe14bdf62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyBulletTime: 90
+  destroyBulletTime: 150
   destroyBullet: 0
   rigid: {fileID: 0}
   anim: {fileID: 0}

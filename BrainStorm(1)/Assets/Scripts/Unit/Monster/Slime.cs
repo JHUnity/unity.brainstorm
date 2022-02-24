@@ -16,21 +16,4 @@ public class Slime : Monster
         }
 
     }
-    void FixedUpdate()
-    {
-        rigid.velocity = new Vector2(nextMove * maxSpeed * 10, rigid.velocity.y);
-
-        Vector2 frontVec = new Vector2(rigid.position.x + nextMove * 0.3f, rigid.position.y);
-        Debug.DrawRay(frontVec, Vector3.down, new Color(0, 0, 0, 0));
-        RaycastHit2D rayHit = Physics2D.Raycast(frontVec, Vector3.down, 1, LayerMask.GetMask("PlatformColider"));
-        if (rayHit.collider == null)
-        {
-            Turn();
-        }
-    }
-    void Turn()
-    {
-        nextMove *= -1;
-        spriteRenderer.flipX = nextMove == 1;
-    }
 }

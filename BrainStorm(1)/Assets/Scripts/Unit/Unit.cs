@@ -16,6 +16,7 @@ public class Unit : MonoBehaviour
 
     public GameManager gameManager;
     public ObjectManager objManager;
+    public UIManager uiManager;
 
     void Awake()
     {
@@ -30,6 +31,6 @@ public class Unit : MonoBehaviour
         //player = GameObject.Find("Player").GetComponent<Player>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         objManager = GameObject.Find("ObjectManager").GetComponent<ObjectManager>();
-        //uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
+        uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
     }
 }

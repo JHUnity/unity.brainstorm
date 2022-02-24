@@ -8,5 +8,6 @@ public class EItem : Item
     public void ItemAddScore()
     {
         gameManager.stageScore = gameManager.stageScore + ItemScore;
+        uiManager.StageScore();
     }
 }
