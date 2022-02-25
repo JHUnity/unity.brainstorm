@@ -30,11 +30,12 @@ public class UIManager : MonoBehaviour
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         //objManager = GameObject.Find("ObjectManager").GetComponent<ObjectManager>();
         //uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
+
+        StageScore();
     }
 
     void Update()
     {
-        StageScore();
         StageItem();
         Score();
     }

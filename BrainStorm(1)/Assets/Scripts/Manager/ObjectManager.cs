@@ -13,6 +13,7 @@ public class ObjectManager : MonoBehaviour
     public int Player_Bullet1Count;
     public GameObject Player_Bullet1Prefab;
 
+
     GameObject[] SItem_Key1;
     public int SItem_Key1Count;
     public GameObject SItem_Key1Prefab;
@@ -29,15 +30,24 @@ public class ObjectManager : MonoBehaviour
     public int EItem_FeatherCount;
     public GameObject EItem_FeatherPrefab;
 
+
+    GameObject[] Monster_Slime;
+    public int Monster_SlimeCount;
+    public GameObject Monster_SlimePrefab;
+
+
     GameObject[] targetpool;
 
     void Awake()
     {
         Player_Bullet1 = new GameObject[Player_Bullet1Count];
+
         SItem_Key1 = new GameObject[SItem_Key1Count];
         SItem_Key2 = new GameObject[SItem_Key2Count];
         EItem_Gun = new GameObject[EItem_GunCount];
         EItem_Feather = new GameObject[EItem_FeatherCount];
+
+        Monster_Slime = new GameObject[Monster_SlimeCount];
 
         Generate();
     }
@@ -52,77 +62,40 @@ public class ObjectManager : MonoBehaviour
 
     void Generate()
     {
+        BulletCreate<Bullet>(Player_Bullet1, Player_Bullet1Prefab);
 
-        for (int index = 0; index < Player_Bullet1.Length; index++)
+        ItemCreate<Item>(SItem_Key1, SItem_Key1Prefab);
+        ItemCreate<Item>(SItem_Key2, SItem_Key2Prefab);
+        ItemCreate<Item>(EItem_Gun, EItem_GunPrefab);
+        ItemCreate<Item>(EItem_Feather, EItem_FeatherPrefab);
+
+        MonsterCreate<Monster>(Monster_Slime, Monster_SlimePrefab);
+    }
+
+    void BulletCreate<T>(GameObject[] bullet, GameObject pref) where T : Bullet
+    {
+        for (int index = 0; index < bullet.Length; index++)
         {
-            Player_Bullet1[index] = Instantiate(Player_Bullet1Prefab);
-            Player_Bullet1[index].SetActive(false);
+            bullet[index] = Instantiate(pref);
+            bullet[index].SetActive(false);
         }
-
-        /*
-        for (int index = 0; index < SItem_Key1.Length; index++)
-        {
-            SItem_Key1[index] = Instantiate(SItem_Key1Prefab);
-            SItem_Key1[index].SetActive(false);
-            SItem_Key1 tmp = SItem_Key1[index].GetComponent<SItem_Key1>();
-            tmp.player = player;
-            tmp.gameManager = gameManager;
-            tmp.objManager = objManager;
-            tmp.uiManager = uiManager;
-        }
-
-        for (int index = 0; index < SItem_Key2.Length; index++)
-        {
-            SItem_Key2[index] = Instantiate(SItem_Key2Prefab);
-            SItem_Key2[index].SetActive(false);
-            SItem_Key2 tmp = SItem_Key2[index].GetComponent<SItem_Key2>();
-            tmp.player = player;
-            tmp.gameManager = gameManager;
-            tmp.objManager = objManager;
-            tmp.uiManager = uiManager;
-        }
-
-        for (int index = 0; index < EItem_Gun.Length; index++)
-        {
-            EItem_Gun[index] = Instantiate(EItem_GunPrefab);
-            EItem_Gun[index].SetActive(false);
-            EItem_Gun tmp = EItem_Gun[index].GetComponent<EItem_Gun>();
-            tmp.player = player;
-            tmp.gameManager = gameManager;
-            tmp.objManager = objManager;
-            tmp.uiManager = uiManager;
-        }
-
-        
-        for (int index = 0; index < EItem_Feather.Length; index++)
-        {
-            EItem_Feather[index] = Instantiate(EItem_FeatherPrefab);
-            EItem_Feather[index].SetActive(false);
-            EItem_Feather tmp = EItem_Feather[index].GetComponent<EItem_Feather>();
-            tmp.player = player;
-            tmp.gameManager = gameManager;
-            tmp.objManager = objManager;
-            tmp.uiManager = uiManager;
-        }
-        */
-
-        ItemCreate<SItem_Key1>(SItem_Key1, SItem_Key1Prefab);
-        ItemCreate<SItem_Key2>(SItem_Key2, SItem_Key2Prefab);
-        ItemCreate<EItem_Gun>(EItem_Gun, EItem_GunPrefab);
-        ItemCreate<EItem_Feather>(EItem_Feather, EItem_FeatherPrefab);
     }
 
     void ItemCreate<T>(GameObject[] item, GameObject pref) where T : Item
     {
-        for (int index = 0; index < EItem_Feather.Length; index++)
+        for (int index = 0; index < item.Length; index++)
         {
             item[index] = Instantiate(pref);
             item[index].SetActive(false);
-            T tmp = item[index].GetComponent<T>();
-            tmp.player = player;
-            tmp.gameManager = gameManager;
-            tmp.objManager = objManager;
-            tmp.uiManager = uiManager;
+        }
+    }
+
+    void MonsterCreate<T>(GameObject[] monster, GameObject pref) where T : Monster
+    {
+        for (int index = 0; index < monster.Length; index++)
+        {
+            monster[index] = Instantiate(pref);
+            monster[index].SetActive(false);
         }
     }
 
@@ -134,6 +107,7 @@ public class ObjectManager : MonoBehaviour
             case "Player_Bullet1":
                 targetpool = Player_Bullet1;
                 break;
+
             case "SItem_Key1":
                 targetpool = SItem_Key1;
                 break;
@@ -145,6 +119,10 @@ public class ObjectManager : MonoBehaviour
                 break;
             case "EItem_Feather":
                 targetpool = EItem_Feather;
+                break;
+
+            case "Monster_Slime":
+                targetpool = Monster_Slime;
                 break;
         }
 

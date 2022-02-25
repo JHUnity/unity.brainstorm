@@ -13,6 +13,10 @@ public class Slime : Monster
             {
                 anim.SetTrigger("isDamaged");
             }
+            else
+            {
+                MosterDie();
+            }
         }
 
     }
