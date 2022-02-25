@@ -7,6 +7,7 @@ TagManager:
   - Item
   - PlayerBullet
   - Monster
+  - MonsterBullet
   layers:
   - Default
   - TransparentFX

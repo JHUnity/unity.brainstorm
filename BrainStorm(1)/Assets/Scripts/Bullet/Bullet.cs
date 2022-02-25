@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    public float bulletSpeed;
     public float destroyBulletTime;
     public float destroyBullet;
 

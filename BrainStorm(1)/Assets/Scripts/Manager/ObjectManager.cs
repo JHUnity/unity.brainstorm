@@ -13,6 +13,10 @@ public class ObjectManager : MonoBehaviour
     public int Player_Bullet1Count;
     public GameObject Player_Bullet1Prefab;
 
+    GameObject[] Monster_Bullet1;
+    public int Monster_Bullet1Count;
+    public GameObject Monster_Bullet1Prefab;
+
 
     GameObject[] SItem_Key1;
     public int SItem_Key1Count;
@@ -35,12 +39,17 @@ public class ObjectManager : MonoBehaviour
     public int Monster_SlimeCount;
     public GameObject Monster_SlimePrefab;
 
+    GameObject[] Monster_Bat;
+    public int Monster_BatCount;
+    public GameObject Monster_BatPrefab;
+
 
     GameObject[] targetpool;
 
     void Awake()
     {
         Player_Bullet1 = new GameObject[Player_Bullet1Count];
+        Monster_Bullet1 = new GameObject[Monster_Bullet1Count];
 
         SItem_Key1 = new GameObject[SItem_Key1Count];
         SItem_Key2 = new GameObject[SItem_Key2Count];
@@ -48,6 +57,7 @@ public class ObjectManager : MonoBehaviour
         EItem_Feather = new GameObject[EItem_FeatherCount];
 
         Monster_Slime = new GameObject[Monster_SlimeCount];
+        Monster_Bat = new GameObject[Monster_BatCount];
 
         Generate();
     }
@@ -63,6 +73,7 @@ public class ObjectManager : MonoBehaviour
     void Generate()
     {
         BulletCreate<Bullet>(Player_Bullet1, Player_Bullet1Prefab);
+        BulletCreate<Bullet>(Monster_Bullet1, Monster_Bullet1Prefab);
 
         ItemCreate<Item>(SItem_Key1, SItem_Key1Prefab);
         ItemCreate<Item>(SItem_Key2, SItem_Key2Prefab);
@@ -70,6 +81,7 @@ public class ObjectManager : MonoBehaviour
         ItemCreate<Item>(EItem_Feather, EItem_FeatherPrefab);
 
         MonsterCreate<Monster>(Monster_Slime, Monster_SlimePrefab);
+        MonsterCreate<Monster>(Monster_Bat, Monster_BatPrefab);
     }
 
     void BulletCreate<T>(GameObject[] bullet, GameObject pref) where T : Bullet
@@ -107,6 +119,9 @@ public class ObjectManager : MonoBehaviour
             case "Player_Bullet1":
                 targetpool = Player_Bullet1;
                 break;
+            case "Monster_Bullet1":
+                targetpool = Monster_Bullet1;
+                break;
 
             case "SItem_Key1":
                 targetpool = SItem_Key1;
@@ -123,6 +138,9 @@ public class ObjectManager : MonoBehaviour
 
             case "Monster_Slime":
                 targetpool = Monster_Slime;
+                break;
+            case "Monster_Bat":
+                targetpool = Monster_Bat;
                 break;
         }
 

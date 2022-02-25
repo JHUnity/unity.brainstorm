@@ -7,10 +7,10 @@ public class Player : Unit
     public Transform pos;
     public Transform itemDrop;
 
+    public float bulletSpeed;
     public float coolTime;
     private float curTime;
 
-    public float bulletSpeed;
     int bulletDir = 1;
 
     public bool inputLeft = false;
@@ -177,11 +177,16 @@ public class Player : Unit
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Monster")
+        if (collision.gameObject.tag == ("Monster"))
         {
             OnDamaged(collision.transform.position);
         }
+        if (collision.gameObject.tag == ("MonsterBullet"))
+        {
+            OnDamagedBullet();
+        }
     }
+
     void OnDamaged(Vector2 targetPos)
     {
         hp = hp - 1;
@@ -191,6 +196,17 @@ public class Player : Unit
 
         int dirc = transform.position.x - targetPos.x > 0 ? 1 : -1;
         rigid.AddForce(new Vector2(dirc, 1) * 5, ForceMode2D.Impulse);
+        anim.SetTrigger("isDamaged");
+
+        Invoke("OffDamaged", 1);
+    }
+
+    void OnDamagedBullet()
+    {
+        hp = hp - 1;
+
+        gameObject.layer = 9;
+        spriteRenderer.color = new Color(1, 1, 1, 0.4f);
         anim.SetTrigger("isDamaged");
 
         Invoke("OffDamaged", 1);
