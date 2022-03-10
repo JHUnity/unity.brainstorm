@@ -8,10 +8,10 @@ public class SItem_Key1 : SItem
     {
         if (collision.gameObject.tag == "Player")
         {
-            if (gameManager.itemActive == 0)
+            if (GameManager.Instance.itemActive == 0)
             {
                 SitemGet();
-                gameManager.SitemNumber = 1;
+                GameManager.Instance.SitemNumber = 1;
                 DestroyItem();
             }
         }

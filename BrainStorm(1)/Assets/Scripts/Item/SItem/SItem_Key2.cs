@@ -6,12 +6,12 @@ public class SItem_Key2 : SItem
 {
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (gameManager.itemActive == 0)
+        if (GameManager.Instance.itemActive == 0)
         {
             if (collision.gameObject.tag == "Player")
             {
                 SitemGet();
-                gameManager.SitemNumber = 2;
+                GameManager.Instance.SitemNumber = 2;
                 DestroyItem();
             }
         }

@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 20
-  destroyBulletTime: 150
+  destroyBulletTime: 100
   destroyBullet: 0
   rigid: {fileID: 0}
   anim: {fileID: 0}

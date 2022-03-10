@@ -6,7 +6,7 @@ public class SItem : Item
 {
     public void SitemGet()
     {
-        gameManager.itemActive = 30;
+        GameManager.Instance.itemActive = 30;
 
         Vector3 spotPos = gameObject.transform.position;
         player.itemDrop.position = spotPos;
@@ -16,13 +16,13 @@ public class SItem : Item
 
     public void SItemChange()
     {
-        if (gameManager.SitemNumber == 1)
+        if (GameManager.Instance.SitemNumber == 1)
         {
             GameObject SItem_Key1 = objManager.MakeObj("SItem_Key1");
             SItem_Key1.transform.position = player.itemDrop.position;
         }
 
-        if (gameManager.SitemNumber == 2)
+        if (GameManager.Instance.SitemNumber == 2)
         {
             GameObject SItem_Key2 = objManager.MakeObj("SItem_Key2");
             SItem_Key2.transform.position = player.itemDrop.position;

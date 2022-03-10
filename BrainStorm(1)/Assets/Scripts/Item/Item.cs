@@ -5,14 +5,14 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
     public Player player;
-    public GameManager gameManager;
+    //public GameManager gameManager;
     public ObjectManager objManager;
     public UIManager uiManager;
 
     void Awake()
     {
         player = GameObject.Find("Player").GetComponent<Player>();
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        //gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         objManager = GameObject.Find("ObjectManager").GetComponent<ObjectManager>();
         uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
     }

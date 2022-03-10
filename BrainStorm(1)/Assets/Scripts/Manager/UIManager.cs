@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    public GameManager gameManager;
-    public SettingManager settingManager;
+    //public GameManager gameManager;
+    //public SettingManager settingManager;
 
     public GameObject Skey1;
     public GameObject Skey2;
@@ -18,6 +18,8 @@ public class UIManager : MonoBehaviour
     public GameObject Score1;
     public GameObject Score2;
 
+    public GameObject E_item;
+
     public GameObject AttackButton;
 
     public Text UIStageScore1;
@@ -27,7 +29,7 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         //player = GameObject.Find("Player").GetComponent<Player>();
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        //gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         //objManager = GameObject.Find("ObjectManager").GetComponent<ObjectManager>();
         //uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
 
@@ -36,19 +38,21 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
+        StageScore();
         StageItem();
+        EternityItem();
         Score();
     }
 
     public void StageScore()
     {
-        UIStageScore1.text = "Score : " + (gameManager.stageScore).ToString();
-        UIStageScore2.text = "Achievement : " + (gameManager.stageScore / gameManager.maxStageScore * 100) + "%".ToString();
+        UIStageScore1.text = "Score : " + (GameManager.Instance.stageScore).ToString();
+        UIStageScore2.text = "Achievement : " + (GameManager.Instance.stageScore / GameManager.Instance.maxStageScore * 100) + "%".ToString();
     }
 
     void StageItem()
     {
-        if (gameManager.SitemNumber == 1)
+        if (GameManager.Instance.SitemNumber == 1)
         {
             Skey1.SetActive(true);
         }
@@ -57,7 +61,7 @@ public class UIManager : MonoBehaviour
             Skey1.SetActive(false);
         }
 
-        if (gameManager.SitemNumber == 2)
+        if (GameManager.Instance.SitemNumber == 2)
         {
             Skey2.SetActive(true);
         }
@@ -67,9 +71,21 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    void EternityItem()
+    {
+        if (SettingManager.Instance.Itemonoff == false)
+        {
+            E_item.SetActive(false);
+        }
+        else
+        {
+            E_item.SetActive(true);
+        }
+    }
+
     void Score()
     {
-        if (settingManager.ScoreSetting == false)
+        if (SettingManager.Instance.ScoreSetting == false)
         {
             Score1.SetActive(true);
             Score2.SetActive(false);

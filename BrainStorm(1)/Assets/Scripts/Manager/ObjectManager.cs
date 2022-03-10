@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class ObjectManager : MonoBehaviour
 {
-    public Player player;
-    public GameManager gameManager;
-    public ObjectManager objManager;
-    public UIManager uiManager;
+    //public Player player;
+    //public GameManager gameManager;
+    //public ObjectManager objManager;
+    //public UIManager uiManager;
 
     GameObject[] Player_Bullet1;
     public int Player_Bullet1Count;
@@ -64,10 +64,10 @@ public class ObjectManager : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.Find("Player").GetComponent<Player>();
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        objManager = GameObject.Find("ObjectManager").GetComponent<ObjectManager>();
-        uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
+        //player = GameObject.Find("Player").GetComponent<Player>();
+        //gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        //objManager = GameObject.Find("ObjectManager").GetComponent<ObjectManager>();
+        //uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
     }
 
     void Generate()

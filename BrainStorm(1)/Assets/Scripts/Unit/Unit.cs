@@ -15,9 +15,8 @@ public class Unit : MonoBehaviour
     public Vector3 movement;
 
     public Player player;
-    public GameManager gameManager;
-    public ObjectManager objManager;
     public UIManager uiManager;
+    public ObjectManager objManager;
 
     void Awake()
     {
@@ -27,7 +26,6 @@ public class Unit : MonoBehaviour
         anim = gameObject.GetComponent<Animator>();
 
         player = GameObject.Find("Player").GetComponent<Player>();
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         objManager = GameObject.Find("ObjectManager").GetComponent<ObjectManager>();
         uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
     }

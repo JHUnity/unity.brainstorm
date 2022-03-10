@@ -20,7 +20,7 @@ public class Monster : Unit
 
     public void MosterDie()
     {
-        gameManager.stageScore = gameManager.stageScore + MonsterScore;
+        GameManager.Instance.stageScore = GameManager.Instance.stageScore + MonsterScore;
         uiManager.StageScore();
 
         spriteRenderer.color = new Color(1, 1, 1, 0.4f);

@@ -7,7 +7,7 @@ public class EItem : Item
     public int ItemScore;
     public void ItemAddScore()
     {
-        gameManager.stageScore = gameManager.stageScore + ItemScore;
+        GameManager.Instance.stageScore = GameManager.Instance.stageScore + ItemScore;
         uiManager.StageScore();
     }
 }
