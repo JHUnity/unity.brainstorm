@@ -11736,7 +11736,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 591255b7fa250aa4999462c1c421cb2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player_Bullet1Count: 5
+  Player_Bullet1Count: 10
   Player_Bullet1Prefab: {fileID: 4772527291256486975, guid: 169e9255408255b4c901c095a6a49454,
     type: 3}
   Monster_Bullet1Count: 10

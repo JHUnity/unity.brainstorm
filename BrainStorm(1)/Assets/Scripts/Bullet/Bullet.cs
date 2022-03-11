@@ -39,7 +39,7 @@ public class Bullet : MonoBehaviour
 
     public void ExplosionBullet()
     {
-        destroyBullet = 120;
+        destroyBullet = 50;
         rigid.velocity = Vector3.zero;
         anim.SetTrigger("BulletHit");
     }

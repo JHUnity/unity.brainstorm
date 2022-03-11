@@ -10,8 +10,9 @@ public class WorldManager : MonoBehaviour
         SceneManager.LoadScene("Lobby");
     }
 
-    public void goStage1()
+    public void goWorld1()
     {
+        GameManager.Instance.stageIndex = 10000;
         SceneManager.LoadScene("Stage");
     }
 }

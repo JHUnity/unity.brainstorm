@@ -1036,7 +1036,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 725280979}
-        m_MethodName: goStage1
+        m_MethodName: goWorld1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

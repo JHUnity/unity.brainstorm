@@ -8,9 +8,6 @@ public class GameManager : MonoBehaviour
     public int star;
     public int bigStar;
 
-    //public Player player;
-    //public ObjectManager objManager;
-
     public float maxStageScore;
     public float stageScore;
     public int stageIndex;
@@ -50,14 +47,6 @@ public class GameManager : MonoBehaviour
             return;
         }
         DontDestroyOnLoad(gameObject);
-    }
-
-    void Start()
-    {
-        //player = GameObject.Find("Player").GetComponent<Player>();
-        //gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        //objManager = GameObject.Find("ObjectManager").GetComponent<ObjectManager>();
-        //uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
     }
 
     void Update()
