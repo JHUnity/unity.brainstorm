@@ -191,6 +191,14 @@ public class Player : Unit
         }
     }
 
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == ("Flag"))
+        {
+            StageClear();
+        }
+    }
+
     void OnDamaged(Vector2 targetPos)
     {
         DecreaseHp();
@@ -246,6 +254,13 @@ public class Player : Unit
             spriteRenderer.color = new Color(1, 1, 1, 1);
         }
     }
+
+    void StageClear()
+    {
+        Time.timeScale = 0;
+        SettingManager.Instance.ClearPop();
+    }
+
 
     public void LeftDown()
     {

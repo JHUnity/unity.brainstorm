@@ -20,6 +20,8 @@ public class SettingManager : MonoBehaviour
 
     public GameObject retryPop;
 
+    public GameObject clearPop;
+
     public bool Menuonoff;
     public bool Itemonoff;
 
@@ -194,6 +196,40 @@ public class SettingManager : MonoBehaviour
 
         Time.timeScale = 1;
         retryPop.SetActive(false);
+        SceneManager.LoadScene("Game");
+    }
+
+    public void ClearPop()
+    {
+        Time.timeScale = 0;
+        clearPop.SetActive(true);
+    }
+
+    public void ClearPopNo()
+    {
+        GameManager.Instance.maxStageScore = 0;
+        GameManager.Instance.stageScore = 0;
+        GameManager.Instance.stageIndex = GameManager.Instance.stageIndex / 10000 * 10000;
+        GameManager.Instance.itemActive = 0;
+        GameManager.Instance.SitemNumber = 0;
+        GameManager.Instance.stageTime = 0;
+
+        Time.timeScale = 1;
+        clearPop.SetActive(false);
+        SceneManager.LoadScene("Stage");
+    }
+
+    public void ClearPopYes()
+    {
+        GameManager.Instance.maxStageScore = 0;
+        GameManager.Instance.stageScore = 0;
+        GameManager.Instance.stageIndex = GameManager.Instance.stageIndex +1;
+        GameManager.Instance.itemActive = 0;
+        GameManager.Instance.SitemNumber = 0;
+        GameManager.Instance.stageTime = 0;
+
+        Time.timeScale = 1;
+        clearPop.SetActive(false);
         SceneManager.LoadScene("Game");
     }
 }
