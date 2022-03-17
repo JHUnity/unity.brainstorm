@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : Unit
 {
@@ -130,20 +131,23 @@ public class Player : Unit
 
     void PlayerMove()
     {
-        if (inputRight == true & inputLeft == false)
+        if (hp >= 1)
         {
-            rigid.AddForce(Vector2.right * 1, ForceMode2D.Impulse);
+            if (inputRight == true & inputLeft == false)
+            {
+                rigid.AddForce(Vector2.right * 1, ForceMode2D.Impulse);
 
-            if (rigid.velocity.x > maxSpeed)
-                rigid.velocity = new Vector2(maxSpeed, rigid.velocity.y);
-        }
+                if (rigid.velocity.x > maxSpeed)
+                    rigid.velocity = new Vector2(maxSpeed, rigid.velocity.y);
+            }
 
-        if (inputRight == false & inputLeft == true)
-        {
-            rigid.AddForce(Vector2.right * -1, ForceMode2D.Impulse);
+            if (inputRight == false & inputLeft == true)
+            {
+                rigid.AddForce(Vector2.right * -1, ForceMode2D.Impulse);
 
-            if (rigid.velocity.x < maxSpeed * (-1))
-                rigid.velocity = new Vector2(maxSpeed * (-1), rigid.velocity.y);
+                if (rigid.velocity.x < maxSpeed * (-1))
+                    rigid.velocity = new Vector2(maxSpeed * (-1), rigid.velocity.y);
+            }
         }
     }
 
@@ -189,7 +193,7 @@ public class Player : Unit
 
     void OnDamaged(Vector2 targetPos)
     {
-        hp = hp - 1;
+        DecreaseHp();
 
         gameObject.layer = 9;
         spriteRenderer.color = new Color(1, 1, 1, 0.4f);
@@ -203,7 +207,7 @@ public class Player : Unit
 
     void OnDamagedBullet()
     {
-        hp = hp - 1;
+        DecreaseHp();
 
         gameObject.layer = 9;
         spriteRenderer.color = new Color(1, 1, 1, 0.4f);
@@ -212,10 +216,35 @@ public class Player : Unit
         Invoke("OffDamaged", 1);
     }
 
+    void DecreaseHp()
+    {
+        hp = hp - 1;
+        uiManager.UIhealth[hp].color = new Color(1, 1, 1, 0);
+
+        if (hp < 1) //Player Die
+        {
+        spriteRenderer.color = new Color(1, 1, 1, 0.4f);
+        spriteRenderer.flipY = true;
+        capsuleCollider.enabled = false;
+        rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
+            
+        Invoke("RePop", 1.5f);
+        }
+    }
+
+    void RePop()
+    {
+        Time.timeScale = 0;
+        SettingManager.Instance.RetryPop();
+    }
+
     void OffDamaged()
     {
-        gameObject.layer = 8;
-        spriteRenderer.color = new Color(1, 1, 1, 1);
+        if (hp >= 1)
+        {
+            gameObject.layer = 8;
+            spriteRenderer.color = new Color(1, 1, 1, 1);
+        }
     }
 
     public void LeftDown()

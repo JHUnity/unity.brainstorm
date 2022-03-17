@@ -18,6 +18,8 @@ public class SettingManager : MonoBehaviour
     public GameObject quitButton;
     public GameObject quitPop;
 
+    public GameObject retryPop;
+
     public bool Menuonoff;
     public bool Itemonoff;
 
@@ -160,5 +162,38 @@ public class SettingManager : MonoBehaviour
         {
             quitButton.SetActive(false);
         }
+    }
+
+    public void RetryPop()
+    {
+        Time.timeScale = 0;
+        retryPop.SetActive(true);
+    }
+
+    public void RetryPopNo()
+    {
+        GameManager.Instance.maxStageScore = 0;
+        GameManager.Instance.stageScore = 0;
+        GameManager.Instance.stageIndex = GameManager.Instance.stageIndex / 10000 * 10000;
+        GameManager.Instance.itemActive = 0;
+        GameManager.Instance.SitemNumber = 0;
+        GameManager.Instance.stageTime = 0;
+
+        Time.timeScale = 1;
+        retryPop.SetActive(false);
+        SceneManager.LoadScene("Stage");
+    }
+
+    public void RetryPopYes()
+    {
+        GameManager.Instance.maxStageScore = 0;
+        GameManager.Instance.stageScore = 0;
+        GameManager.Instance.itemActive = 0;
+        GameManager.Instance.SitemNumber = 0;
+        GameManager.Instance.stageTime = 0;
+
+        Time.timeScale = 1;
+        retryPop.SetActive(false);
+        SceneManager.LoadScene("Game");
     }
 }
