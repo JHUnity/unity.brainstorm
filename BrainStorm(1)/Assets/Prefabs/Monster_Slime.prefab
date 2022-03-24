@@ -162,9 +162,9 @@ MonoBehaviour:
   capsuleCollider: {fileID: 0}
   anim: {fileID: 0}
   movement: {x: 0, y: 0, z: 0}
-  gameManager: {fileID: 0}
-  objManager: {fileID: 0}
+  player: {fileID: 0}
   uiManager: {fileID: 0}
-  maxHp: 10
+  objManager: {fileID: 0}
+  maxHp: 3
   MonsterScore: 20
   nextMove: -1

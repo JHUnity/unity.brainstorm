@@ -7207,7 +7207,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   star: 0
   bigStar: 0
-  maxStageScore: 1000
+  maxStageScore: 0
   stageScore: 0
   stageIndex: 0
   savePoint: 0

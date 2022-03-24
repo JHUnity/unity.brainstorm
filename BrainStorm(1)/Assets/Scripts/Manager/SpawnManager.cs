@@ -17,6 +17,8 @@ public class SpawnManager : MonoBehaviour
     public Transform[] Feather;
     public Transform[] Gun;
 
+    public GameObject[] Door;
+
     void Start()
     {
         objManager = GameObject.Find("ObjectManager").GetComponent<ObjectManager>();
@@ -29,6 +31,8 @@ public class SpawnManager : MonoBehaviour
 
         spawnFeather();
         spawnGun();
+
+        spawnDoor();
     }
 
     void spawnSlime()
@@ -37,6 +41,7 @@ public class SpawnManager : MonoBehaviour
         {
             Spawner = objManager.MakeObj("Monster_Slime");
             Spawner.transform.position = Slime[i].position;
+            GameManager.Instance.maxStageScore = GameManager.Instance.maxStageScore + 20;
         }
     }
 
@@ -46,6 +51,7 @@ public class SpawnManager : MonoBehaviour
         {
             Spawner = objManager.MakeObj("Monster_Bat");
             Spawner.transform.position = Bat[i].position;
+            GameManager.Instance.maxStageScore = GameManager.Instance.maxStageScore + 20;
         }
     }
 
@@ -73,6 +79,7 @@ public class SpawnManager : MonoBehaviour
         {
             Spawner = objManager.MakeObj("EItem_Feather");
             Spawner.transform.position = Feather[i].position;
+            GameManager.Instance.maxStageScore = GameManager.Instance.maxStageScore + 500;
         }
     }
 
@@ -82,6 +89,15 @@ public class SpawnManager : MonoBehaviour
         {
             Spawner = objManager.MakeObj("EItem_Gun");
             Spawner.transform.position = Gun[i].position;
+            GameManager.Instance.maxStageScore = GameManager.Instance.maxStageScore + 500;
+        }
+    }
+
+    void spawnDoor()
+    {
+        for (int i = 0; i < Door.Length; i++)
+        {
+            GameManager.Instance.maxStageScore = GameManager.Instance.maxStageScore + 500;
         }
     }
 }

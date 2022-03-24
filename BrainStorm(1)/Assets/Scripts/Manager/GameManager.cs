@@ -14,8 +14,12 @@ public class GameManager : MonoBehaviour
     public int stageIndex;
     public int savePoint;
     public float itemActive;
+    public float doorActive;
     public int SitemNumber;
     public float stageTime;
+    public float stageMaxTime;
+
+    public int mapSize;
 
     private static GameManager instance;
     public static GameManager Instance
@@ -53,6 +57,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         ItemActiveSet();
+        DoorActiveSet();
         StageTimer();
     }
 
@@ -63,6 +68,14 @@ public class GameManager : MonoBehaviour
             itemActive--;
         }
     }
+    void DoorActiveSet()
+    {
+        if (doorActive > 0)
+        {
+            doorActive--;
+        }
+    }
+
     void StageTimer()
     {
         if(SceneManager.GetActiveScene().name == "Game")
@@ -74,4 +87,14 @@ public class GameManager : MonoBehaviour
             stageTime = 0;
         }
     }
+
+    public void GameReset()
+    {
+        maxStageScore = 0;
+        stageScore = 0;
+        itemActive = 0;
+        SitemNumber = 0;
+        stageTime = 0;
+        mapSize = 0;
+    } 
 }

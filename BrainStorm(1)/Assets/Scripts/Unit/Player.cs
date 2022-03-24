@@ -12,7 +12,10 @@ public class Player : Unit
     public float coolTime;
     private float curTime;
 
-    int bulletDir = 1;
+    public int bulletDir = 1;
+
+    public bool wallCollision;
+    public bool doorOpening;
 
     public bool inputLeft = false;
     public bool inputRight = false;
@@ -20,6 +23,8 @@ public class Player : Unit
     public bool inputAttack = false;
 
     public bool EItem_Gun = false;
+
+    public bool[] doorOpen = new bool [7];
 
     void Update() 
     {
@@ -30,6 +35,8 @@ public class Player : Unit
         PlayerDirection();
         PlayerAnimation();
         PlayerAttak();
+
+        Wall();
     }
 
     void FixedUpdate()
@@ -73,7 +80,10 @@ public class Player : Unit
     {
         if (inputJump == true & !anim.GetBool("isJumping"))
         {
-            GetComponent<CapsuleCollider2D>().isTrigger = true;
+            if(wallCollision == false)
+            {
+                GetComponent<CapsuleCollider2D>().isTrigger = true;
+            }
             rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
             anim.SetBool("isJumping", true);
         }
@@ -199,6 +209,19 @@ public class Player : Unit
         }
     }
 
+    void Wall()
+    {
+        if(transform.position.x <= 0 || transform.position.x >= GameManager.Instance.mapSize)
+        {
+            GetComponent<CapsuleCollider2D>().isTrigger = false;
+            wallCollision = true;
+        }
+        else
+        {
+            wallCollision = false;
+        }
+    }
+
     void OnDamaged(Vector2 targetPos)
     {
         DecreaseHp();
@@ -207,7 +230,7 @@ public class Player : Unit
         spriteRenderer.color = new Color(1, 1, 1, 0.4f);
 
         int dirc = transform.position.x - targetPos.x > 0 ? 1 : -1;
-        rigid.AddForce(new Vector2(dirc, 1) * 5, ForceMode2D.Impulse);
+        rigid.AddForce(new Vector2(dirc, 1) * 2, ForceMode2D.Impulse);
         anim.SetTrigger("isDamaged");
 
         Invoke("OffDamaged", 1);
