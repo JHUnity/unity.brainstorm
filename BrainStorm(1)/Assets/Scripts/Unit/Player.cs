@@ -80,12 +80,12 @@ public class Player : Unit
     {
         if (inputJump == true & !anim.GetBool("isJumping"))
         {
-            if(wallCollision == false)
+            anim.SetBool("isJumping", true);
+            if (wallCollision == false)
             {
                 GetComponent<CapsuleCollider2D>().isTrigger = true;
             }
             rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
-            anim.SetBool("isJumping", true);
         }
     }
 
@@ -171,7 +171,7 @@ public class Player : Unit
             {
                 Vector2 velocityVec = new Vector2(rigid.position.x + i, rigid.position.y);
                 Debug.DrawRay(velocityVec, new Vector3(0, -1, 0), new Color(0, 1, 0, 255));
-                RaycastHit2D rayHit = Physics2D.Raycast(velocityVec, new Vector3(0, -1, 0), 1, LayerMask.GetMask("PlatformColider", "Monster", "Block"));
+                RaycastHit2D rayHit = Physics2D.Raycast(velocityVec, new Vector3(0, -1, 0), 1, LayerMask.GetMask("PlatformColider", "Monster"));
                 if (rayHit.collider != null)
                 {
                     if (rayHit.distance <= 0.5f)
@@ -183,10 +183,11 @@ public class Player : Unit
 
         }
 
-        if ((Mathf.Abs(rigid.velocity.y) == 0) && anim.GetBool("isJumping"))
+        if ((Mathf.Abs(rigid.velocity.y) == 0) && anim.GetBool("isJumping") && wallCollision == false)
         {
             anim.SetBool("isJumping", false);
         }
+        
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -200,12 +201,11 @@ public class Player : Unit
             OnDamagedBullet();
         }
     }
-
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == ("Flag"))
         {
-            StageClear();
+            clrManager.StageClear();
         }
     }
 
@@ -266,7 +266,7 @@ public class Player : Unit
     void RePop()
     {
         Time.timeScale = 0;
-        SettingManager.Instance.RetryPop();
+        SettingManager.Instance.RetryPop2();
     }
 
     void OffDamaged()
@@ -277,13 +277,6 @@ public class Player : Unit
             spriteRenderer.color = new Color(1, 1, 1, 1);
         }
     }
-
-    void StageClear()
-    {
-        Time.timeScale = 0;
-        SettingManager.Instance.ClearPop();
-    }
-
 
     public void LeftDown()
     {

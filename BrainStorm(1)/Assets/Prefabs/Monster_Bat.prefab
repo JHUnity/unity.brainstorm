@@ -164,10 +164,9 @@ MonoBehaviour:
   anim: {fileID: 0}
   movement: {x: 0, y: 0, z: 0}
   player: {fileID: 0}
-  gameManager: {fileID: 0}
-  objManager: {fileID: 0}
   uiManager: {fileID: 0}
-  maxHp: 6
+  objManager: {fileID: 0}
+  maxHp: 2
   MonsterScore: 25
   nextMove: -1
 --- !u!114 &5902094136462519090
@@ -191,9 +190,8 @@ MonoBehaviour:
   anim: {fileID: 0}
   movement: {x: 0, y: 0, z: 0}
   player: {fileID: 0}
-  gameManager: {fileID: 0}
-  objManager: {fileID: 0}
   uiManager: {fileID: 0}
+  objManager: {fileID: 0}
   maxHp: 6
   MonsterScore: 25
   nextMove: 0

@@ -165,6 +165,6 @@ MonoBehaviour:
   player: {fileID: 0}
   uiManager: {fileID: 0}
   objManager: {fileID: 0}
-  maxHp: 3
+  maxHp: 4
   MonsterScore: 20
   nextMove: -1

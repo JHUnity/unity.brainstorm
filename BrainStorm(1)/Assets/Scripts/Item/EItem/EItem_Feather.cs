@@ -10,6 +10,7 @@ public class EItem_Feather : EItem
         {
             uiManager.EItem_2();
             player.maxSpeed = 10;
+            player.jumpPower = 22;
             ItemAddScore();
             DestroyItem();
         }

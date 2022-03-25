@@ -18,7 +18,9 @@ public class SettingManager : MonoBehaviour
     public GameObject quitButton;
     public GameObject quitPop;
 
-    public GameObject retryPop;
+    public GameObject retryButton;
+    public GameObject retryPop1;
+    public GameObject retryPop2;
 
     public GameObject clearPop;
 
@@ -155,35 +157,59 @@ public class SettingManager : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "Game")
         {
             quitButton.SetActive(true);
+            retryButton.SetActive(true);
         }
         else
         {
             quitButton.SetActive(false);
+            retryButton.SetActive(false);
         }
     }
 
-    public void RetryPop()
+    public void RetryPop1()
     {
         Time.timeScale = 0;
-        retryPop.SetActive(true);
+        retryPop1.SetActive(true);
     }
 
-    public void RetryPopNo()
+    public void RetryPopNo1()
+    {
+        Time.timeScale = 1;
+        retryPop1.SetActive(false);
+    }
+
+    public void RetryPopYes1()
+    {
+        GameManager.Instance.GameReset();
+
+        Time.timeScale = 1;
+        Menu.SetActive(false);
+        retryPop1.SetActive(false);
+        SceneManager.LoadScene("Game");
+    }
+
+    public void RetryPop2()
+    {
+        Time.timeScale = 0;
+        retryPop2.SetActive(true);
+    }
+
+    public void RetryPopNo2()
     {
         GameManager.Instance.stageIndex = GameManager.Instance.stageIndex / 10000 * 10000;
         GameManager.Instance.GameReset();
 
         Time.timeScale = 1;
-        retryPop.SetActive(false);
+        retryPop2.SetActive(false);
         SceneManager.LoadScene("Stage");
     }
 
-    public void RetryPopYes()
+    public void RetryPopYes2()
     {
         GameManager.Instance.GameReset();
 
         Time.timeScale = 1;
-        retryPop.SetActive(false);
+        retryPop2.SetActive(false);
         SceneManager.LoadScene("Game");
     }
 
