@@ -81,7 +81,7 @@ public class Player : Unit
         if (inputJump == true & !anim.GetBool("isJumping"))
         {
             anim.SetBool("isJumping", true);
-            if (wallCollision == false)
+            if (wallCollision == false && player.gameObject.layer == LayerMask.NameToLayer("Player"))
             {
                 GetComponent<CapsuleCollider2D>().isTrigger = true;
             }
@@ -230,7 +230,8 @@ public class Player : Unit
         spriteRenderer.color = new Color(1, 1, 1, 0.4f);
 
         int dirc = transform.position.x - targetPos.x > 0 ? 1 : -1;
-        rigid.AddForce(new Vector2(dirc, 1) * 2, ForceMode2D.Impulse);
+        GetComponent<CapsuleCollider2D>().isTrigger = false;
+        rigid.AddForce(new Vector2(dirc, 1) * 5, ForceMode2D.Impulse);
         anim.SetTrigger("isDamaged");
 
         Invoke("OffDamaged", 1);

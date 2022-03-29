@@ -8,6 +8,7 @@ public class UserManager : MonoBehaviour
     public int bigStar;
 
     public int[] Stage1Score;
+    public float[] Stage1Achive;
     public int[] Stage1Star;
     public int[] Stage1Time;
 
