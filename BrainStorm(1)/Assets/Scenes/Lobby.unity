@@ -963,7 +963,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 288851400}
-          m_MethodName: RetryPopNo
+          m_MethodName: RetryPopNo2
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -3253,7 +3253,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 288851400}
-          m_MethodName: RetryPopYes
+          m_MethodName: RetryPopYes2
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -4445,6 +4445,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1338185532}
   m_CullTransparentMesh: 0
+--- !u!1 &1355969933
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1355969935}
+  - component: {fileID: 1355969934}
+  m_Layer: 0
+  m_Name: UserManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1355969934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1355969933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a0851ddd13ccf745ad33aac8d3975d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  star: 0
+  bigStar: 0
+  Stage1Score: ffe0f505000000000000000000000000000000000000000000000000000000000000000000000000
+  Stage1Star: ffe0f505000000000000000000000000000000000000000000000000000000000000000000000000
+  Stage1Time: ffe0f505000000000000000000000000000000000000000000000000000000000000000000000000
+--- !u!4 &1355969935
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1355969933}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1372269377
 GameObject:
   m_ObjectHideFlags: 0
@@ -8031,8 +8079,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 924fbcaf835c9a64495c1bd5175529a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  star: 0
-  bigStar: 0
   maxStageScore: 0
   stageScore: 0
   stageIndex: 0
@@ -8041,8 +8087,29 @@ MonoBehaviour:
   doorActive: 0
   SitemNumber: 0
   stageTime: 0
-  stageMaxTime: 0
-  mapSize: 0
+  stageMapSize: 0
+  stage1MaxTime:
+  - 999999
+  - 45
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  stage1aMaxTime: []
+  stage2MaxTime: []
+  stage2aMaxTime: []
+  stage3MaxTime: []
+  stage3aMaxTime: []
+  stage1MapSize: ffe0f505320000000000000000000000000000000000000000000000000000000000000000000000
+  stage1aMapSize: 
+  stage2MapSize: 
+  stage2aMapSize: 
+  stage3MapSize: 
+  stage3aMapSize: 
 --- !u!4 &2051261110
 Transform:
   m_ObjectHideFlags: 0

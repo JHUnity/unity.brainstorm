@@ -6,9 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public int star;
-    public int bigStar;
-
     public float maxStageScore;
     public float stageScore;
     public int stageIndex;
@@ -16,10 +13,23 @@ public class GameManager : MonoBehaviour
     public float itemActive;
     public float doorActive;
     public int SitemNumber;
-    public float stageTime;
-    public float stageMaxTime;
 
-    public int mapSize;
+    public float stageTime;
+    public int stageMapSize;
+
+    public float[] stage1MaxTime;
+    public float[] stage1aMaxTime;
+    public float[] stage2MaxTime;
+    public float[] stage2aMaxTime;
+    public float[] stage3MaxTime;
+    public float[] stage3aMaxTime;
+
+    public int[] stage1MapSize;
+    public int[] stage1aMapSize;
+    public int[] stage2MapSize;
+    public int[] stage2aMapSize;
+    public int[] stage3MapSize;
+    public int[] stage3aMapSize;
 
     private static GameManager instance;
     public static GameManager Instance
@@ -95,6 +105,6 @@ public class GameManager : MonoBehaviour
         itemActive = 0;
         SitemNumber = 0;
         stageTime = 0;
-        mapSize = 0;
+        stageMapSize = 0;
     } 
 }

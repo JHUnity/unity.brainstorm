@@ -17,9 +17,8 @@ public class PlayManager : MonoBehaviour
     {
         if(GameManager.Instance.stageIndex == 10001)
         {
-            GameManager.Instance.stageMaxTime = 45;
-            GameManager.Instance.mapSize = 50;
             Stage1[0].SetActive(true);
+            GameManager.Instance.stageMapSize = GameManager.Instance.stage1MapSize[1];
         }
         else
         {

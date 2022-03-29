@@ -205,13 +205,13 @@ public class Player : Unit
     {
         if (collision.gameObject.tag == ("Flag"))
         {
-            clrManager.StageClear();
+            SettingManager.Instance.ClearPop();
         }
     }
 
     void Wall()
     {
-        if(transform.position.x <= 0 || transform.position.x >= GameManager.Instance.mapSize)
+        if(transform.position.x <= 0 || transform.position.x >= GameManager.Instance.stageMapSize)
         {
             GetComponent<CapsuleCollider2D>().isTrigger = false;
             wallCollision = true;

@@ -17,7 +17,6 @@ public class Unit : MonoBehaviour
     public Player player;
     public UIManager uiManager;
     public ObjectManager objManager;
-    public ClearManager clrManager;
 
     void Awake()
     {
@@ -29,6 +28,5 @@ public class Unit : MonoBehaviour
         player = GameObject.Find("Player").GetComponent<Player>();
         objManager = GameObject.Find("ObjectManager").GetComponent<ObjectManager>();
         uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
-        clrManager = GameObject.Find("ClearManager").GetComponent<ClearManager>();
     }
 }
