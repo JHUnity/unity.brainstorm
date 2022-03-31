@@ -229,6 +229,15 @@ public class SettingManager : MonoBehaviour
         SceneManager.LoadScene("Stage");
     }
 
+    public void ClearPopRe()
+    {
+        GameManager.Instance.GameReset();
+
+        Time.timeScale = 1;
+        clearPop.SetActive(false);
+        SceneManager.LoadScene("Game");
+    }
+
     public void ClearPopYes()
     {
         GameManager.Instance.stageIndex = GameManager.Instance.stageIndex +1;
