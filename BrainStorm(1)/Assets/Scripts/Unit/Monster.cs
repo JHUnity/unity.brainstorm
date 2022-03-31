@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Monster : Unit
 {
+    public int hp;
     public int maxHp;
 
     public int MonsterScore;

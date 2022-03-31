@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PlayManager : MonoBehaviour
 {
-    public GameObject[] Stage1;
-    public GameObject[] Stage2;
-    public GameObject[] Stage3;
+    public GameObject[] World1;
+    public GameObject[] World2;
+    public GameObject[] World3;
 
     void Start()
     {
@@ -15,14 +15,14 @@ public class PlayManager : MonoBehaviour
 
     void StageChange()
     {
-        if(GameManager.Instance.stageIndex == 10001)
+        if(GameManager.Instance.worldIndex == 1  && GameManager.Instance.stageIndex == 1)
         {
-            Stage1[0].SetActive(true);
+            World1[1].SetActive(true);
             GameManager.Instance.stageMapSize = GameManager.Instance.stage1MapSize[1];
         }
         else
         {
-            Stage1[0].SetActive(false);
+            World1[1].SetActive(false);
         }
     }
 }

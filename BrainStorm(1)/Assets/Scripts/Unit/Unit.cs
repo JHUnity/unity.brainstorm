@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour
 {
-    public int hp;
     public float maxSpeed;
     public float jumpPower;
 

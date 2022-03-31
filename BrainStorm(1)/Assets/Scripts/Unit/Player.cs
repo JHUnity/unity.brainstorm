@@ -26,6 +26,11 @@ public class Player : Unit
 
     public bool[] doorOpen = new bool [7];
 
+    void Start()
+    {
+        GameManager.Instance.playerHP = 3;
+    }
+
     void Update() 
     {
         KeyUpdate();
@@ -141,7 +146,7 @@ public class Player : Unit
 
     void PlayerMove()
     {
-        if (hp >= 1)
+        if (GameManager.Instance.playerHP >= 1)
         {
             if (inputRight == true & inputLeft == false)
             {
@@ -250,10 +255,10 @@ public class Player : Unit
 
     void DecreaseHp()
     {
-        hp = hp - 1;
-        uiManager.UIhealth[hp].color = new Color(1, 1, 1, 0);
+        GameManager.Instance.playerHP = GameManager.Instance.playerHP - 1;
+        uiManager.UIhealth[GameManager.Instance.playerHP].color = new Color(1, 1, 1, 0);
 
-        if (hp < 1) //Player Die
+        if (GameManager.Instance.playerHP < 1) //Player Die
         {
         spriteRenderer.color = new Color(1, 1, 1, 0.4f);
         spriteRenderer.flipY = true;
@@ -272,7 +277,7 @@ public class Player : Unit
 
     void OffDamaged()
     {
-        if (hp >= 1)
+        if (GameManager.Instance.playerHP >= 1)
         {
             gameObject.layer = 8;
             spriteRenderer.color = new Color(1, 1, 1, 1);

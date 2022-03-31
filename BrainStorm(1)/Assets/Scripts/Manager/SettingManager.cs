@@ -23,7 +23,14 @@ public class SettingManager : MonoBehaviour
     public GameObject retryPop2;
 
     public GameObject clearPop;
+    public Text clearStage;
+    public Text clearScore;
+    public Text clearTime;
+    public GameObject[] clearLife;
+    public GameObject[] clearStar;
+    public GameObject clearButtons;
 
+    public int starCalculate;
     public bool Menuonoff;
     public bool Itemonoff;
 
@@ -141,7 +148,7 @@ public class SettingManager : MonoBehaviour
 
     public void QuitPopYes()
     {
-        GameManager.Instance.stageIndex = GameManager.Instance.stageIndex / 10000 * 10000;
+        GameManager.Instance.stageIndex = 0;
         GameManager.Instance.GameReset();
 
         Menu.SetActive(false);
@@ -196,7 +203,7 @@ public class SettingManager : MonoBehaviour
 
     public void RetryPopNo2()
     {
-        GameManager.Instance.stageIndex = GameManager.Instance.stageIndex / 10000 * 10000;
+        GameManager.Instance.stageIndex = 0;
         GameManager.Instance.GameReset();
 
         Time.timeScale = 1;
@@ -217,15 +224,72 @@ public class SettingManager : MonoBehaviour
     {
         Time.timeScale = 0;
         clearPop.SetActive(true);
+
+        clearStage.text = "World " + (GameManager.Instance.worldIndex) + "-" + (GameManager.Instance.stageIndex) + " Clear!".ToString();
+        clearScore.text = "Score : " + (GameManager.Instance.stageScore) + " (" + ((GameManager.Instance.stageScore) / (GameManager.Instance.maxStageScore) * 100) + "%)".ToString();
+
+        if (GameManager.Instance.stageIndex >= 10000 && (GameManager.Instance.stageIndex <= 19999))
+        {
+            clearTime.text = "Time : " + (GameManager.Instance.stageTime) + " / " + (GameManager.Instance.stage1MaxTime[GameManager.Instance.stageIndex]) + " sec".ToString();
+        }
+
+        if (GameManager.Instance.playerHP >= 1)
+            clearLife[0].SetActive(true);
+        if (GameManager.Instance.playerHP >= 2)
+            clearLife[1].SetActive(true);
+        if (GameManager.Instance.playerHP >= 3)
+            clearLife[2].SetActive(true);
+
+        if (GameManager.Instance.stageTime / GameManager.Instance.stage1MaxTime[GameManager.Instance.stageIndex] <= 1.0f
+            && GameManager.Instance.stageScore / GameManager.Instance.maxStageScore >= 1.0f && GameManager.Instance.playerHP >= 3)
+        {
+            clearStar[4].SetActive(true);
+        }
+        else if (GameManager.Instance.stageTime / GameManager.Instance.stage1MaxTime[GameManager.Instance.stageIndex] <= 1.0f
+            && GameManager.Instance.stageScore / GameManager.Instance.maxStageScore >= 0.75f && GameManager.Instance.playerHP >= 2)
+        {
+            clearStar[3].SetActive(true);
+        }
+        else if (GameManager.Instance.stageTime / GameManager.Instance.stage1MaxTime[GameManager.Instance.stageIndex] <= 1.0f
+            && GameManager.Instance.stageScore / GameManager.Instance.maxStageScore >= 0.5f)
+        {
+            clearStar[2].SetActive(true);
+        }
+        else if (GameManager.Instance.stageTime / GameManager.Instance.stage1MaxTime[GameManager.Instance.stageIndex] <= 1.5f)
+        {
+            clearStar[1].SetActive(true);
+        }
+        else if (GameManager.Instance.stageTime / GameManager.Instance.stage1MaxTime[GameManager.Instance.stageIndex] <= 2.0f)
+        {
+            clearStar[0].SetActive(true);
+        }
+
+        clearButtons.SetActive(true);
+    }
+
+    void clearUIDisabled()
+    {
+        clearLife[0].SetActive(false);
+        clearLife[1].SetActive(false);
+        clearLife[2].SetActive(false);
+
+        clearStar[0].SetActive(false);
+        clearStar[1].SetActive(false);
+        clearStar[2].SetActive(false);
+        clearStar[3].SetActive(false);
+        clearStar[4].SetActive(false);
+
+        clearButtons.SetActive(false);
     }
 
     public void ClearPopNo()
     {
-        GameManager.Instance.stageIndex = GameManager.Instance.stageIndex / 10000 * 10000;
+        GameManager.Instance.stageIndex = 0;
         GameManager.Instance.GameReset();
 
         Time.timeScale = 1;
         clearPop.SetActive(false);
+        clearUIDisabled();
         SceneManager.LoadScene("Stage");
     }
 
@@ -235,6 +299,7 @@ public class SettingManager : MonoBehaviour
 
         Time.timeScale = 1;
         clearPop.SetActive(false);
+        clearUIDisabled();
         SceneManager.LoadScene("Game");
     }
 
@@ -245,6 +310,7 @@ public class SettingManager : MonoBehaviour
 
         Time.timeScale = 1;
         clearPop.SetActive(false);
+        clearUIDisabled();
         SceneManager.LoadScene("Game");
     }
 }

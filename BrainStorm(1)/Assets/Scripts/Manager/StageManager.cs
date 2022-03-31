@@ -19,13 +19,13 @@ public class StageManager : MonoBehaviour
 
     public void goWorld()
     {
-        GameManager.Instance.stageIndex = 0;
+        GameManager.Instance.worldIndex = 0;
         SceneManager.LoadScene("World");
     }
 
     public void goStage1()
     {
-        GameManager.Instance.stageIndex = GameManager.Instance.stageIndex + 1;
+        GameManager.Instance.stageIndex = GameManager.Instance.stageIndex = 1;
         StartPop();
     }
 
@@ -41,26 +41,7 @@ public class StageManager : MonoBehaviour
 
     void StageSelect()
     {
-        if (GameManager.Instance.stageIndex >= 10000 && (GameManager.Instance.stageIndex <= 19999))
-        {
-            GameManager.Instance.stageIndex = 10000;
-            Worlds[1].SetActive(true);
-        }
-        else
-        {
-            Worlds[1].SetActive(false);
-        }
-
-        /*if (GameManager.Instance.stageIndex == 20000 && (GameManager.Instance.stageIndex <= 29999))
-        {
-        GameManager.Instance.stageIndex = 20000;
-            Worlds[2].SetActive(true);
-        }
-        else
-        {
-            Worlds[2].SetActive(false);
-        }
-        */
+        Worlds[GameManager.Instance.worldIndex].SetActive(true);
     }
 
     void StartPop()
@@ -72,6 +53,7 @@ public class StageManager : MonoBehaviour
     public void StartPopNo()
     {
         StageSelect();
+        GameManager.Instance.stageIndex = 0;
         startPop.SetActive(false);
     }
 
@@ -83,12 +65,24 @@ public class StageManager : MonoBehaviour
 
     void StartText()
     {
-        PopStage.text = "Stage " + (GameManager.Instance.stageIndex / 10000) + "-" + (GameManager.Instance.stageIndex - (GameManager.Instance.stageIndex / 10000 * 10000)).ToString();
+        PopStage.text = "World " + (GameManager.Instance.worldIndex) + "-" + (GameManager.Instance.stageIndex).ToString();
 
-        PopScore.text = "Best Score : " + (UserManager.Instance.Stage1Score[GameManager.Instance.stageIndex - (GameManager.Instance.stageIndex / 10000 * 10000)]) 
-            + " (" + (UserManager.Instance.Stage1Achive[GameManager.Instance.stageIndex - (GameManager.Instance.stageIndex / 10000 * 10000)]) + "%)".ToString();
+        if (GameManager.Instance.worldIndex == 1)
+        {
+            PopScore.text = "Best Score : " + (UserManager.Instance.World1Score[GameManager.Instance.stageIndex]) + " (" + (UserManager.Instance.World1Achive[GameManager.Instance.stageIndex]) + "%)".ToString();
 
-        PopTime.text = "Best Time : " + (UserManager.Instance.Stage1Time[GameManager.Instance.stageIndex - (GameManager.Instance.stageIndex / 10000 * 10000)]) 
-            + " / " + (GameManager.Instance.stage1MaxTime[GameManager.Instance.stageIndex - (GameManager.Instance.stageIndex / 10000 * 10000)]) + " sec".ToString();
+            PopTime.text = "Best Time : " + (UserManager.Instance.World1Time[GameManager.Instance.stageIndex]) + " / " + (GameManager.Instance.stage1MaxTime[GameManager.Instance.stageIndex]) + " sec".ToString();
         }
+
+        /*
+        if (GameManager.Instance.stageIndex >= 20000 && (GameManager.Instance.stageIndex <= 29999))
+        {
+            PopScore.text = "Best Score : " + (UserManager.Instance.Stage2Score[GameManager.Instance.stageIndex - (GameManager.Instance.stageIndex / 10000 * 10000)])
+            + " (" + (UserManager.Instance.Stage2Achive[GameManager.Instance.stageIndex - (GameManager.Instance.stageIndex / 10000 * 10000)]) + "%)".ToString();
+
+            PopTime.text = "Best Time : " + (UserManager.Instance.Stage2Time[GameManager.Instance.stageIndex - (GameManager.Instance.stageIndex / 10000 * 10000)])
+                + " / " + (GameManager.Instance.stage2MaxTime[GameManager.Instance.stageIndex - (GameManager.Instance.stageIndex / 10000 * 10000)]) + " sec".ToString();
+        }
+        */
+    }
 }

@@ -6,9 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public int playerHP;
+
     public float maxStageScore;
     public float stageScore;
+    public int worldIndex;
     public int stageIndex;
+    public bool specialStage;
     public int savePoint;
     public float itemActive;
     public float doorActive;

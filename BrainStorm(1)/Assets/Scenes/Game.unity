@@ -67187,10 +67187,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75cf801e16da9074ba25b99c0b581f87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Stage1:
+  World1:
+  - {fileID: 0}
   - {fileID: 1559305830}
-  Stage2: []
-  Stage3: []
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  World2: []
+  World3: []
 --- !u!4 &126355883
 Transform:
   m_ObjectHideFlags: 0
@@ -69285,7 +69294,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7da9f4b03b64f6f42905f7c109c1177c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 3
   maxSpeed: 6
   jumpPower: 18
   rigid: {fileID: 0}
@@ -73938,7 +73946,7 @@ GameObject:
   - component: {fileID: 1559305832}
   - component: {fileID: 1559305831}
   m_Layer: 0
-  m_Name: Stage(1-1)
+  m_Name: World 1-1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

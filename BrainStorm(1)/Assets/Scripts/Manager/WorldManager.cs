@@ -12,7 +12,7 @@ public class WorldManager : MonoBehaviour
 
     public void goWorld1()
     {
-        GameManager.Instance.stageIndex = 10000;
+        GameManager.Instance.worldIndex = 1;
         SceneManager.LoadScene("Stage");
     }
 }

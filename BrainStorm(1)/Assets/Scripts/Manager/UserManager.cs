@@ -7,10 +7,11 @@ public class UserManager : MonoBehaviour
     public int star;
     public int bigStar;
 
-    public int[] Stage1Score;
-    public float[] Stage1Achive;
-    public int[] Stage1Star;
-    public int[] Stage1Time;
+    public float[] World1Score;
+    public float[] World1Achive;
+    public int[] World1Star;
+    public int[] World1Time;
+    public int[] World1Life;
 
     private static UserManager instance;
     public static UserManager Instance
