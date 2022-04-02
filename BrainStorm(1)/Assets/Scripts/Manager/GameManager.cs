@@ -4,6 +4,18 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+[System.Serializable]
+public class MaxTimeData
+{
+    public float[] StageMaxTime; 
+}
+
+[System.Serializable]
+public class MapSizeData
+{
+    public int[] StageMaxSize;
+}
+
 public class GameManager : MonoBehaviour
 {
     public int playerHP;
@@ -21,19 +33,8 @@ public class GameManager : MonoBehaviour
     public float stageTime;
     public int stageMapSize;
 
-    public float[] stage1MaxTime;
-    public float[] stage1aMaxTime;
-    public float[] stage2MaxTime;
-    public float[] stage2aMaxTime;
-    public float[] stage3MaxTime;
-    public float[] stage3aMaxTime;
-
-    public int[] stage1MapSize;
-    public int[] stage1aMapSize;
-    public int[] stage2MapSize;
-    public int[] stage2aMapSize;
-    public int[] stage3MapSize;
-    public int[] stage3aMapSize;
+    public MaxTimeData[] WorldMaxTime;
+    public MapSizeData[] WorldMaxSize;
 
     private static GameManager instance;
     public static GameManager Instance

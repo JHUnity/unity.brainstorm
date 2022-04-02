@@ -14,6 +14,8 @@ public class SettingManager : MonoBehaviour
     public Slider seVolume;
     public GameObject ItemSetting1;
     public GameObject ItemSetting2;
+    public GameObject TimerSetting1;
+    public GameObject TimerSetting2;
 
     public GameObject quitButton;
     public GameObject quitPop;
@@ -37,6 +39,7 @@ public class SettingManager : MonoBehaviour
     public bool ScoreSetting;
     public float BGMSetting;
     public float SESetting;
+    public bool TimerSetting;
 
     private static SettingManager instance;
     public static SettingManager Instance
@@ -75,6 +78,7 @@ public class SettingManager : MonoBehaviour
     {
         ScoreSetting = false;
         Itemonoff = true;
+        TimerSetting = false;
     }
 
     void Update()
@@ -122,7 +126,7 @@ public class SettingManager : MonoBehaviour
         {
             ItemSetting1.SetActive(false);
             ItemSetting2.SetActive(true);
-           
+
             Itemonoff = true;
         }
         else
@@ -131,6 +135,24 @@ public class SettingManager : MonoBehaviour
             ItemSetting2.SetActive(false);
 
             Itemonoff = false;
+        }
+    }
+
+    public void TimerSet()
+    {
+        if (TimerSetting == false)
+        {
+            TimerSetting1.SetActive(false);
+            TimerSetting2.SetActive(true);
+
+            TimerSetting = true;
+        }
+        else
+        {
+            TimerSetting1.SetActive(true);
+            TimerSetting2.SetActive(false);
+
+            TimerSetting = false;
         }
     }
 
@@ -227,11 +249,7 @@ public class SettingManager : MonoBehaviour
 
         clearStage.text = "World " + (GameManager.Instance.worldIndex) + "-" + (GameManager.Instance.stageIndex) + " Clear!".ToString();
         clearScore.text = "Score : " + (GameManager.Instance.stageScore) + " (" + ((GameManager.Instance.stageScore) / (GameManager.Instance.maxStageScore) * 100) + "%)".ToString();
-
-        if (GameManager.Instance.stageIndex >= 10000 && (GameManager.Instance.stageIndex <= 19999))
-        {
-            clearTime.text = "Time : " + (GameManager.Instance.stageTime) + " / " + (GameManager.Instance.stage1MaxTime[GameManager.Instance.stageIndex]) + " sec".ToString();
-        }
+        clearTime.text = "Time : " + (GameManager.Instance.stageTime) + " / " + (GameManager.Instance.WorldMaxTime[GameManager.Instance.worldIndex].StageMaxTime[GameManager.Instance.stageIndex]) + " sec".ToString();
 
         if (GameManager.Instance.playerHP >= 1)
             clearLife[0].SetActive(true);
@@ -240,26 +258,26 @@ public class SettingManager : MonoBehaviour
         if (GameManager.Instance.playerHP >= 3)
             clearLife[2].SetActive(true);
 
-        if (GameManager.Instance.stageTime / GameManager.Instance.stage1MaxTime[GameManager.Instance.stageIndex] <= 1.0f
+        if (GameManager.Instance.stageTime / GameManager.Instance.WorldMaxTime[GameManager.Instance.worldIndex].StageMaxTime[GameManager.Instance.stageIndex] <= 1.0f
             && GameManager.Instance.stageScore / GameManager.Instance.maxStageScore >= 1.0f && GameManager.Instance.playerHP >= 3)
         {
             clearStar[4].SetActive(true);
         }
-        else if (GameManager.Instance.stageTime / GameManager.Instance.stage1MaxTime[GameManager.Instance.stageIndex] <= 1.0f
+        else if (GameManager.Instance.stageTime / GameManager.Instance.WorldMaxTime[GameManager.Instance.worldIndex].StageMaxTime[GameManager.Instance.stageIndex] <= 1.0f
             && GameManager.Instance.stageScore / GameManager.Instance.maxStageScore >= 0.75f && GameManager.Instance.playerHP >= 2)
         {
             clearStar[3].SetActive(true);
         }
-        else if (GameManager.Instance.stageTime / GameManager.Instance.stage1MaxTime[GameManager.Instance.stageIndex] <= 1.0f
+        else if (GameManager.Instance.stageTime / GameManager.Instance.WorldMaxTime[GameManager.Instance.worldIndex].StageMaxTime[GameManager.Instance.stageIndex] <= 1.0f
             && GameManager.Instance.stageScore / GameManager.Instance.maxStageScore >= 0.5f)
         {
             clearStar[2].SetActive(true);
         }
-        else if (GameManager.Instance.stageTime / GameManager.Instance.stage1MaxTime[GameManager.Instance.stageIndex] <= 1.5f)
+        else if (GameManager.Instance.stageTime / GameManager.Instance.WorldMaxTime[GameManager.Instance.worldIndex].StageMaxTime[GameManager.Instance.stageIndex] <= 1.5f)
         {
             clearStar[1].SetActive(true);
         }
-        else if (GameManager.Instance.stageTime / GameManager.Instance.stage1MaxTime[GameManager.Instance.stageIndex] <= 2.0f)
+        else if (GameManager.Instance.stageTime / GameManager.Instance.WorldMaxTime[GameManager.Instance.worldIndex].StageMaxTime[GameManager.Instance.stageIndex] <= 2.0f)
         {
             clearStar[0].SetActive(true);
         }

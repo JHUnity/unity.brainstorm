@@ -66,23 +66,7 @@ public class StageManager : MonoBehaviour
     void StartText()
     {
         PopStage.text = "World " + (GameManager.Instance.worldIndex) + "-" + (GameManager.Instance.stageIndex).ToString();
-
-        if (GameManager.Instance.worldIndex == 1)
-        {
-            PopScore.text = "Best Score : " + (UserManager.Instance.World1Score[GameManager.Instance.stageIndex]) + " (" + (UserManager.Instance.World1Achive[GameManager.Instance.stageIndex]) + "%)".ToString();
-
-            PopTime.text = "Best Time : " + (UserManager.Instance.World1Time[GameManager.Instance.stageIndex]) + " / " + (GameManager.Instance.stage1MaxTime[GameManager.Instance.stageIndex]) + " sec".ToString();
-        }
-
-        /*
-        if (GameManager.Instance.stageIndex >= 20000 && (GameManager.Instance.stageIndex <= 29999))
-        {
-            PopScore.text = "Best Score : " + (UserManager.Instance.Stage2Score[GameManager.Instance.stageIndex - (GameManager.Instance.stageIndex / 10000 * 10000)])
-            + " (" + (UserManager.Instance.Stage2Achive[GameManager.Instance.stageIndex - (GameManager.Instance.stageIndex / 10000 * 10000)]) + "%)".ToString();
-
-            PopTime.text = "Best Time : " + (UserManager.Instance.Stage2Time[GameManager.Instance.stageIndex - (GameManager.Instance.stageIndex / 10000 * 10000)])
-                + " / " + (GameManager.Instance.stage2MaxTime[GameManager.Instance.stageIndex - (GameManager.Instance.stageIndex / 10000 * 10000)]) + " sec".ToString();
-        }
-        */
+        PopScore.text = "Best Score : " + (UserManager.Instance.WorldScore[GameManager.Instance.worldIndex].StageScore[GameManager.Instance.stageIndex]) + " (" + (UserManager.Instance.WorldAchive[GameManager.Instance.worldIndex].StageAchive[GameManager.Instance.stageIndex]) + "%)".ToString();
+        PopTime.text = "Best Time : " + (UserManager.Instance.WorldTime[GameManager.Instance.worldIndex].StageTime[GameManager.Instance.stageIndex]) + " / " + (GameManager.Instance.WorldMaxTime[GameManager.Instance.worldIndex].StageMaxTime[GameManager.Instance.stageIndex]) + " sec".ToString();
     }
 }

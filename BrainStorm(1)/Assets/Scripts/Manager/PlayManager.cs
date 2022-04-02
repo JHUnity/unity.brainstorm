@@ -2,11 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class Map
+{
+    public GameObject[] StageMap;
+}
+
 public class PlayManager : MonoBehaviour
 {
-    public GameObject[] World1;
-    public GameObject[] World2;
-    public GameObject[] World3;
+    public Map[] WorldMap;
 
     void Start()
     {
@@ -15,14 +19,7 @@ public class PlayManager : MonoBehaviour
 
     void StageChange()
     {
-        if(GameManager.Instance.worldIndex == 1  && GameManager.Instance.stageIndex == 1)
-        {
-            World1[1].SetActive(true);
-            GameManager.Instance.stageMapSize = GameManager.Instance.stage1MapSize[1];
-        }
-        else
-        {
-            World1[1].SetActive(false);
-        }
+        WorldMap[GameManager.Instance.worldIndex].StageMap[GameManager.Instance.stageIndex].SetActive(true);
+        GameManager.Instance.stageMapSize = GameManager.Instance.WorldMaxSize[GameManager.Instance.worldIndex].StageMaxSize[GameManager.Instance.stageIndex];
     }
 }

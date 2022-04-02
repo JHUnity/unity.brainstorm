@@ -2,16 +2,42 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class ScoreData
+{
+    public float[] StageScore;
+}
+[System.Serializable]
+public class AchiveData
+{
+    public float[] StageAchive;
+}
+[System.Serializable]
+public class StarData
+{
+    public float[] StageStar;
+}
+[System.Serializable]
+public class TimeData
+{
+    public float[] StageTime;
+}
+[System.Serializable]
+public class LifeData
+{
+    public float[] StageLife;
+}
+
 public class UserManager : MonoBehaviour
 {
     public int star;
     public int bigStar;
 
-    public float[] World1Score;
-    public float[] World1Achive;
-    public int[] World1Star;
-    public int[] World1Time;
-    public int[] World1Life;
+    public ScoreData[] WorldScore;
+    public AchiveData[] WorldAchive;
+    public StarData[] WorldStar;
+    public TimeData[] WorldTime;
+    public LifeData[] WorldLife;
 
     private static UserManager instance;
     public static UserManager Instance

@@ -18,6 +18,8 @@ public class UIManager : MonoBehaviour
     public GameObject Score1;
     public GameObject Score2;
 
+    public GameObject TimeR;
+
     public GameObject E_item;
 
     public GameObject AttackButton;
@@ -25,6 +27,7 @@ public class UIManager : MonoBehaviour
     public Text UIStageScore1;
     public Text UIStageScore2;
     public Image[] UIhealth;
+    public Text UITimer;
 
     void Start()
     {
@@ -42,12 +45,14 @@ public class UIManager : MonoBehaviour
         StageItem();
         EternityItem();
         Score();
+        Timer();
     }
 
     public void StageScore()
     {
         UIStageScore1.text = "Score : " + (GameManager.Instance.stageScore).ToString();
         UIStageScore2.text = "Achievement : " + (GameManager.Instance.stageScore / GameManager.Instance.maxStageScore * 100) + "%".ToString();
+        UITimer.text = (GameManager.Instance.stageTime) + " /  " + GameManager.Instance.WorldMaxTime[GameManager.Instance.worldIndex].StageMaxTime[GameManager.Instance.stageIndex] + " sec".ToString();
     }
 
     void StageItem()
@@ -94,6 +99,18 @@ public class UIManager : MonoBehaviour
         {
             Score1.SetActive(false);
             Score2.SetActive(true);
+        }
+    }
+
+    void Timer()
+    {
+        if (SettingManager.Instance.TimerSetting == false)
+        {
+            TimeR.SetActive(true);
+        }
+        else
+        {
+            TimeR.SetActive(false);
         }
     }
 
