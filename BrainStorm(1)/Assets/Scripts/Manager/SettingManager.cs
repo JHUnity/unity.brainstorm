@@ -32,6 +32,7 @@ public class SettingManager : MonoBehaviour
     public GameObject[] clearStar;
     public GameObject clearButtons;
 
+    public int starIf;
     public int starCalculate;
     public bool Menuonoff;
     public bool Itemonoff;
@@ -258,30 +259,89 @@ public class SettingManager : MonoBehaviour
         if (GameManager.Instance.playerHP >= 3)
             clearLife[2].SetActive(true);
 
+        //스테이지 결과 채점
+        if (GameManager.Instance.stageTime / GameManager.Instance.WorldMaxTime[GameManager.Instance.worldIndex].StageMaxTime[GameManager.Instance.stageIndex] <= 1.2f)
+        {
+            starIf = starIf + 1;
+        }
+
+        if (GameManager.Instance.stageScore / GameManager.Instance.maxStageScore >= 0.85f)
+        {
+            starIf = starIf + 1;
+        }
+
+        if (GameManager.Instance.playerHP >= 2)
+        {
+            starIf = starIf + 1;
+        }
+
+        if (starIf >= 3)
+        {
+            int starIf4 = 0;
+            if (GameManager.Instance.stageTime / GameManager.Instance.WorldMaxTime[GameManager.Instance.worldIndex].StageMaxTime[GameManager.Instance.stageIndex] <= 1.1f)
+            {
+                starIf4 = starIf4 + 1;
+            }
+            if (GameManager.Instance.stageScore / GameManager.Instance.maxStageScore >= 0.95f)
+            {
+                starIf4 = starIf4 + 1;
+            }
+            if (GameManager.Instance.playerHP >= 3)
+            {
+                starIf4 = starIf4 + 1;
+            }
+            if (starIf4 >= 2)
+            {
+                starIf = starIf + 1;
+            }
+            starIf4 = 0;
+        }
+       
+
         if (GameManager.Instance.stageTime / GameManager.Instance.WorldMaxTime[GameManager.Instance.worldIndex].StageMaxTime[GameManager.Instance.stageIndex] <= 1.0f
             && GameManager.Instance.stageScore / GameManager.Instance.maxStageScore >= 1.0f && GameManager.Instance.playerHP >= 3)
         {
-            clearStar[4].SetActive(true);
-        }
-        else if (GameManager.Instance.stageTime / GameManager.Instance.WorldMaxTime[GameManager.Instance.worldIndex].StageMaxTime[GameManager.Instance.stageIndex] <= 1.0f
-            && GameManager.Instance.stageScore / GameManager.Instance.maxStageScore >= 0.75f && GameManager.Instance.playerHP >= 2)
-        {
-            clearStar[3].SetActive(true);
-        }
-        else if (GameManager.Instance.stageTime / GameManager.Instance.WorldMaxTime[GameManager.Instance.worldIndex].StageMaxTime[GameManager.Instance.stageIndex] <= 1.0f
-            && GameManager.Instance.stageScore / GameManager.Instance.maxStageScore >= 0.5f)
-        {
-            clearStar[2].SetActive(true);
-        }
-        else if (GameManager.Instance.stageTime / GameManager.Instance.WorldMaxTime[GameManager.Instance.worldIndex].StageMaxTime[GameManager.Instance.stageIndex] <= 1.5f)
-        {
-            clearStar[1].SetActive(true);
-        }
-        else if (GameManager.Instance.stageTime / GameManager.Instance.WorldMaxTime[GameManager.Instance.worldIndex].StageMaxTime[GameManager.Instance.stageIndex] <= 2.0f)
-        {
-            clearStar[0].SetActive(true);
+            starIf = 5;
         }
 
+        //별 획득 결과창
+        clearStar[starIf - 1].SetActive(true);
+
+        //별 획득, 저장
+        if (starIf >= UserManager.Instance.WorldStar[GameManager.Instance.worldIndex].StageStar[GameManager.Instance.worldIndex])
+        {
+            UserManager.Instance.star = UserManager.Instance.star + (starIf - UserManager.Instance.WorldStar[GameManager.Instance.worldIndex].StageStar[GameManager.Instance.stageIndex]);
+            UserManager.Instance.WorldStar[GameManager.Instance.worldIndex].StageStar[GameManager.Instance.stageIndex] = starIf;
+        }
+
+        if (starIf >= 5 && UserManager.Instance.WorldBigStar[GameManager.Instance.worldIndex].StageBigStar[GameManager.Instance.worldIndex] == false)
+        {
+            UserManager.Instance.bigStar = UserManager.Instance.bigStar + 1;
+            UserManager.Instance.WorldBigStar[GameManager.Instance.worldIndex].StageBigStar[GameManager.Instance.worldIndex] = true;
+        }
+
+        //스테이지 기록 저장
+        if (GameManager.Instance.stageTime >= UserManager.Instance.WorldTime[GameManager.Instance.worldIndex].StageTime[GameManager.Instance.stageIndex])
+        {
+            UserManager.Instance.WorldTime[GameManager.Instance.worldIndex].StageTime[GameManager.Instance.stageIndex] = GameManager.Instance.stageTime;
+        }
+
+        if (GameManager.Instance.stageScore >= UserManager.Instance.WorldScore[GameManager.Instance.worldIndex].StageScore[GameManager.Instance.stageIndex])
+        {
+            UserManager.Instance.WorldScore[GameManager.Instance.worldIndex].StageScore[GameManager.Instance.stageIndex] = GameManager.Instance.stageScore;
+        }
+
+        if ((GameManager.Instance.stageScore / GameManager.Instance.maxStageScore) >= UserManager.Instance.WorldAchive[GameManager.Instance.worldIndex].StageAchive[GameManager.Instance.stageIndex])
+        {
+            UserManager.Instance.WorldAchive[GameManager.Instance.worldIndex].StageAchive[GameManager.Instance.stageIndex] = GameManager.Instance.stageScore / GameManager.Instance.maxStageScore;
+        }
+
+        if (GameManager.Instance.playerHP >= UserManager.Instance.WorldLife[GameManager.Instance.worldIndex].StageLife[GameManager.Instance.stageIndex])
+        {
+            UserManager.Instance.WorldLife[GameManager.Instance.worldIndex].StageLife[GameManager.Instance.stageIndex] = GameManager.Instance.playerHP;
+        }
+
+        //클리어 버튼 활성화
         clearButtons.SetActive(true);
     }
 
@@ -296,6 +356,8 @@ public class SettingManager : MonoBehaviour
         clearStar[2].SetActive(false);
         clearStar[3].SetActive(false);
         clearStar[4].SetActive(false);
+
+        starIf = 0;
 
         clearButtons.SetActive(false);
     }

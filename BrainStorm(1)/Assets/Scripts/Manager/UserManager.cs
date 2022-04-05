@@ -15,7 +15,12 @@ public class AchiveData
 [System.Serializable]
 public class StarData
 {
-    public float[] StageStar;
+    public int[] StageStar;
+}
+[System.Serializable]
+public class BigStarData
+{
+    public bool[] StageBigStar;
 }
 [System.Serializable]
 public class TimeData
@@ -25,7 +30,7 @@ public class TimeData
 [System.Serializable]
 public class LifeData
 {
-    public float[] StageLife;
+    public int[] StageLife;
 }
 
 public class UserManager : MonoBehaviour
@@ -36,6 +41,7 @@ public class UserManager : MonoBehaviour
     public ScoreData[] WorldScore;
     public AchiveData[] WorldAchive;
     public StarData[] WorldStar;
+    public BigStarData[] WorldBigStar;
     public TimeData[] WorldTime;
     public LifeData[] WorldLife;
 

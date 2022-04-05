@@ -34,11 +34,6 @@ public class StageManager : MonoBehaviour
         StageSelect();
     }
 
-    void Update()
-    {
-
-    }
-
     void StageSelect()
     {
         Worlds[GameManager.Instance.worldIndex].SetActive(true);
@@ -54,6 +49,13 @@ public class StageManager : MonoBehaviour
     {
         StageSelect();
         GameManager.Instance.stageIndex = 0;
+
+        Star[0].SetActive(false);
+        Star[1].SetActive(false);
+        Star[2].SetActive(false);
+        Star[3].SetActive(false);
+        Star[4].SetActive(false);
+
         startPop.SetActive(false);
     }
 
@@ -66,7 +68,12 @@ public class StageManager : MonoBehaviour
     void StartText()
     {
         PopStage.text = "World " + (GameManager.Instance.worldIndex) + "-" + (GameManager.Instance.stageIndex).ToString();
-        PopScore.text = "Best Score : " + (UserManager.Instance.WorldScore[GameManager.Instance.worldIndex].StageScore[GameManager.Instance.stageIndex]) + " (" + (UserManager.Instance.WorldAchive[GameManager.Instance.worldIndex].StageAchive[GameManager.Instance.stageIndex]) + "%)".ToString();
+        PopScore.text = "Best Score : " + (UserManager.Instance.WorldScore[GameManager.Instance.worldIndex].StageScore[GameManager.Instance.stageIndex]) + " (" + (UserManager.Instance.WorldAchive[GameManager.Instance.worldIndex].StageAchive[GameManager.Instance.stageIndex] * 100) + "%)".ToString();
         PopTime.text = "Best Time : " + (UserManager.Instance.WorldTime[GameManager.Instance.worldIndex].StageTime[GameManager.Instance.stageIndex]) + " / " + (GameManager.Instance.WorldMaxTime[GameManager.Instance.worldIndex].StageMaxTime[GameManager.Instance.stageIndex]) + " sec".ToString();
+
+        if (UserManager.Instance.WorldStar[GameManager.Instance.worldIndex].StageStar[GameManager.Instance.stageIndex] >= 1)
+        {
+            Star[UserManager.Instance.WorldStar[GameManager.Instance.worldIndex].StageStar[GameManager.Instance.stageIndex] - 1].SetActive(true);
+        }
     }
 }
