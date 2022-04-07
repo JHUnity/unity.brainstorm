@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class ScoreData
@@ -37,6 +38,9 @@ public class UserManager : MonoBehaviour
 {
     public int star;
     public int bigStar;
+
+    public Text starText;
+    public Text bigStarText;
 
     public ScoreData[] WorldScore;
     public AchiveData[] WorldAchive;
@@ -76,5 +80,11 @@ public class UserManager : MonoBehaviour
             return;
         }
         DontDestroyOnLoad(gameObject);
+    }
+
+    void Update()
+    {
+        starText.text = "x" + star.ToString();
+        bigStarText.text = "x" + bigStar.ToString();
     }
 }

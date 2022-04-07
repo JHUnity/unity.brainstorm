@@ -16,6 +16,9 @@ public class SettingManager : MonoBehaviour
     public GameObject ItemSetting2;
     public GameObject TimerSetting1;
     public GameObject TimerSetting2;
+    public GameObject StarSetting1;
+    public GameObject StarSetting2;
+    public GameObject StarBigStar;
 
     public GameObject quitButton;
     public GameObject quitPop;
@@ -41,6 +44,7 @@ public class SettingManager : MonoBehaviour
     public float BGMSetting;
     public float SESetting;
     public bool TimerSetting;
+    public bool StarSetting;
 
     private static SettingManager instance;
     public static SettingManager Instance
@@ -154,6 +158,26 @@ public class SettingManager : MonoBehaviour
             TimerSetting2.SetActive(false);
 
             TimerSetting = false;
+        }
+    }
+
+    public void StarSet()
+    {
+        if (StarSetting == false)
+        {
+            StarSetting1.SetActive(false);
+            StarSetting2.SetActive(true);
+            StarBigStar.SetActive(false);
+
+            StarSetting = true;
+        }
+        else
+        {
+            StarSetting1.SetActive(true);
+            StarSetting2.SetActive(false);
+            StarBigStar.SetActive(true);
+
+            StarSetting = false;
         }
     }
 
@@ -321,7 +345,12 @@ public class SettingManager : MonoBehaviour
         }
 
         //스테이지 기록 저장
-        if (GameManager.Instance.stageTime >= UserManager.Instance.WorldTime[GameManager.Instance.worldIndex].StageTime[GameManager.Instance.stageIndex])
+        if (GameManager.Instance.stageTime <= UserManager.Instance.WorldTime[GameManager.Instance.worldIndex].StageTime[GameManager.Instance.stageIndex])
+        {
+            UserManager.Instance.WorldTime[GameManager.Instance.worldIndex].StageTime[GameManager.Instance.stageIndex] = GameManager.Instance.stageTime;
+        }
+
+        if (UserManager.Instance.WorldTime[GameManager.Instance.worldIndex].StageTime[GameManager.Instance.stageIndex] == 0)
         {
             UserManager.Instance.WorldTime[GameManager.Instance.worldIndex].StageTime[GameManager.Instance.stageIndex] = GameManager.Instance.stageTime;
         }
