@@ -1,39 +1,41 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-[System.Serializable]
+[Serializable]
 public class ScoreData
 {
     public float[] StageScore;
 }
-[System.Serializable]
+[Serializable]
 public class AchiveData
 {
     public float[] StageAchive;
 }
-[System.Serializable]
+[Serializable]
 public class StarData
 {
     public int[] StageStar;
 }
-[System.Serializable]
+[Serializable]
 public class BigStarData
 {
     public bool[] StageBigStar;
 }
-[System.Serializable]
+[Serializable]
 public class TimeData
 {
     public float[] StageTime;
 }
-[System.Serializable]
+[Serializable]
 public class LifeData
 {
     public int[] StageLife;
 }
 
+[Serializable]
 public class UserManager : MonoBehaviour
 {
     public int star;
