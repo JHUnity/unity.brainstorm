@@ -40,6 +40,9 @@ public class SettingManager : MonoBehaviour
     public bool Menuonoff;
     public bool Itemonoff;
 
+    public Text starText;
+    public Text bigStarText;
+
     public bool ScoreSetting;
     public float BGMSetting;
     public float SESetting;
@@ -90,6 +93,9 @@ public class SettingManager : MonoBehaviour
     {
         BGMSetting = bgmVolume.value * 100;
         SESetting = seVolume.value * 100;
+
+        starText.text = "x" + UserManager.Instance.star.ToString();
+        bigStarText.text = "x" + UserManager.Instance.bigStar.ToString();
 
         QuitButtonActive();
     }

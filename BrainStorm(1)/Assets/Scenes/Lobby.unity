@@ -1423,6 +1423,8 @@ MonoBehaviour:
   starCalculate: 0
   Menuonoff: 0
   Itemonoff: 0
+  starText: {fileID: 1587563637}
+  bigStarText: {fileID: 1328731174}
   ScoreSetting: 0
   BGMSetting: 0
   SESetting: 0
@@ -6711,6 +6713,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1195533734}
+  - component: {fileID: 1195533735}
   m_Layer: 0
   m_Name: DataManager
   m_TagString: Untagged
@@ -6732,6 +6735,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1195533735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1195533733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76d8b0e560abd4643aa06af6ebd211b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1223410041
 GameObject:
   m_ObjectHideFlags: 0
@@ -7542,8 +7557,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   star: 0
   bigStar: 0
-  starText: {fileID: 1587563637}
-  bigStarText: {fileID: 1328731174}
   WorldScore:
   - StageScore:
     - 0
@@ -12837,7 +12850,6 @@ MonoBehaviour:
   worldIndex: 0
   stageIndex: 0
   specialStage: 0
-  savePoint: 0
   itemActive: 0
   doorActive: 0
   SitemNumber: 0

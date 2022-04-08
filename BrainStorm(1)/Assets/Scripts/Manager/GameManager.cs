@@ -25,7 +25,6 @@ public class GameManager : MonoBehaviour
     public int worldIndex;
     public int stageIndex;
     public bool specialStage;
-    public int savePoint;
     public float itemActive;
     public float doorActive;
     public int SitemNumber;
@@ -111,5 +110,10 @@ public class GameManager : MonoBehaviour
         SitemNumber = 0;
         stageTime = 0;
         stageMapSize = 0;
-    } 
+    }
+
+    void OnApplicationQuit()
+    {
+
+    }
 }

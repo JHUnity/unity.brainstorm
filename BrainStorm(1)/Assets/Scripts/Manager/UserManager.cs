@@ -41,9 +41,6 @@ public class UserManager : MonoBehaviour
     public int star;
     public int bigStar;
 
-    public Text starText;
-    public Text bigStarText;
-
     public ScoreData[] WorldScore;
     public AchiveData[] WorldAchive;
     public StarData[] WorldStar;
@@ -84,9 +81,4 @@ public class UserManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    void Update()
-    {
-        starText.text = "x" + star.ToString();
-        bigStarText.text = "x" + bigStar.ToString();
-    }
 }

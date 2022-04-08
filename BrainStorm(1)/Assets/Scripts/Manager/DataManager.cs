@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DataInfo;
 using System.IO;
-using System;
+using System.Runtime.Serialization.Formatters.Binary;
 
 public class DataManager : MonoBehaviour
 {
@@ -30,68 +31,65 @@ public class DataManager : MonoBehaviour
         }
     }
 
-    /*
-    private void Awake()
-    {
-        var objs = FindObjectsOfType<DataManager>();
-        if (objs.Length != 1)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        DontDestroyOnLoad(gameObject);
-    }
-    */
-
-    public string GameDataFileName = ".json";
-
-    public UserManager _gameData;
-    public UserManager gameData
-    {
-        get
-        {
-            if (_gameData == null)
-            {
-                LoadGameData();
-                SaveGameData();
-            }
-            return _gameData;
-        }
-    }
-
     private void Start()
     {
-        LoadGameData();
-        SaveGameData();
+        LoadData();
+        //SaveData();
     }
 
-    public void LoadGameData()
-    {
-        string filePath = Application.streamingAssetsPath + GameDataFileName;
+    private string dataPath;
 
-        if (File.Exists(filePath))
+    public void Initialize()
+    {
+        dataPath = Application.dataPath + "/gameData.dat";
+    }
+
+    public void SaveData(GameData gameData)
+    {
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream file = File.Create(dataPath);
+
+        GameData data = new GameData();
+
+        data.ScoreSetting = gameData.ScoreSetting;
+        data.BGMSetting = gameData.BGMSetting;
+        data.SESetting = gameData.SESetting;
+        data.TimerSetting = gameData.TimerSetting;
+        data.StarSetting = gameData.StarSetting;
+
+        data.savePoint = gameData.savePoint;
+
+        data.star = gameData.star;
+        data.bigStar = gameData.bigStar;
+
+        data.WorldScore = gameData.WorldScore;
+        data.WorldAchive = gameData.WorldAchive;
+        data.WorldStar = gameData.WorldStar;
+        data.WorldBigStar = gameData.WorldBigStar;
+        data.WorldTime = gameData.WorldTime;
+        data.WorldLife = gameData.WorldLife;
+
+        bf.Serialize(file, data);
+        file.Close();
+    }
+
+    public GameData LoadData()
+    {
+        if(File.Exists(dataPath))
         {
-            Debug.Log("데이터를 불러왔습니다.");
-            string FromJsonData = File.ReadAllText(filePath);
-            _gameData = JsonUtility.FromJson<UserManager>(FromJsonData);
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.Open(dataPath, FileMode.Open);
+
+            GameData data = (GameData)bf.Deserialize(file);
+            file.Close();
+
+            return data;
         }
         else
         {
-            Debug.Log("데이터를 새로 생성합니다.");
-            _gameData = new UserManager();
+            GameData data = new GameData();
+
+            return data;
         }
-    }
-
-    public void SaveGameData()
-    {
-        string ToJsonData = JsonUtility.ToJson(gameData);
-        string filePath = Application.streamingAssetsPath + GameDataFileName;
-        File.WriteAllText(filePath, ToJsonData);
-        Debug.Log("데이터를 저장했습니다.");
-    }
-
-    private void OnApplicationQuit()
-    {
-        SaveGameData();
     }
 }
