@@ -114,6 +114,6 @@ public class GameManager : MonoBehaviour
 
     void OnApplicationQuit()
     {
-
+        UserManager.Instance.SavePlayer();
     }
 }

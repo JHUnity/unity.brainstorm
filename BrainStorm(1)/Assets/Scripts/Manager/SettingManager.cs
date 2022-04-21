@@ -38,16 +38,9 @@ public class SettingManager : MonoBehaviour
     public int starIf;
     public int starCalculate;
     public bool Menuonoff;
-    public bool Itemonoff;
 
     public Text starText;
     public Text bigStarText;
-
-    public bool ScoreSetting;
-    public float BGMSetting;
-    public float SESetting;
-    public bool TimerSetting;
-    public bool StarSetting;
 
     private static SettingManager instance;
     public static SettingManager Instance
@@ -82,17 +75,10 @@ public class SettingManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    void Start()
-    {
-        ScoreSetting = false;
-        Itemonoff = true;
-        TimerSetting = false;
-    }
-
     void Update()
     {
-        BGMSetting = bgmVolume.value * 100;
-        SESetting = seVolume.value * 100;
+        UserManager.Instance.BGMSetting = bgmVolume.value * 100;
+        UserManager.Instance.SESetting = seVolume.value * 100;
 
         starText.text = "x" + UserManager.Instance.star.ToString();
         bigStarText.text = "x" + UserManager.Instance.bigStar.ToString();
@@ -117,73 +103,115 @@ public class SettingManager : MonoBehaviour
 
     public void ScoreSet()
     {
-        if (ScoreSetting == false)
+        if (UserManager.Instance.ScoreSetting == false)
+        {
+            UserManager.Instance.ScoreSetting = true;
+        }
+        else
+        {
+            UserManager.Instance.ScoreSetting = false;
+        }
+
+        ScoreSet2();
+    }
+
+    public void ScoreSet2()
+    {
+        if (UserManager.Instance.ScoreSetting == true)
         {
             scoreSetting1.SetActive(false);
             scoreSetting2.SetActive(true);
-            ScoreSetting = true;
         }
         else
         {
             scoreSetting1.SetActive(true);
             scoreSetting2.SetActive(false);
-            ScoreSetting = false;
         }
     }
-
+    
     public void ItemSet()
     {
-        if (Itemonoff == false)
+        if (UserManager.Instance.ItemSetting == false)
         {
-            ItemSetting1.SetActive(false);
-            ItemSetting2.SetActive(true);
-
-            Itemonoff = true;
+            UserManager.Instance.ItemSetting = true;
         }
         else
         {
+            UserManager.Instance.ItemSetting = false;
+        }
+        
+        ItemSet2();
+    }
+
+    public void ItemSet2()
+    {
+        if (UserManager.Instance.ItemSetting == true)
+        {
             ItemSetting1.SetActive(true);
             ItemSetting2.SetActive(false);
-
-            Itemonoff = false;
+        }
+        else
+        {
+            ItemSetting1.SetActive(false);
+            ItemSetting2.SetActive(true);
         }
     }
 
     public void TimerSet()
     {
-        if (TimerSetting == false)
+        if (UserManager.Instance.TimerSetting == false)
         {
-            TimerSetting1.SetActive(false);
-            TimerSetting2.SetActive(true);
-
-            TimerSetting = true;
+            UserManager.Instance.TimerSetting = true;
         }
         else
         {
+            UserManager.Instance.TimerSetting = false;
+        }
+
+        TimerSet2();
+    }
+
+    public void TimerSet2()
+    {
+        if (UserManager.Instance.TimerSetting == true)
+        {
             TimerSetting1.SetActive(true);
             TimerSetting2.SetActive(false);
-
-            TimerSetting = false;
+        }
+        else
+        {
+            TimerSetting1.SetActive(false);
+            TimerSetting2.SetActive(true);
         }
     }
 
     public void StarSet()
     {
-        if (StarSetting == false)
+        if (UserManager.Instance.StarSetting == false)
         {
-            StarSetting1.SetActive(false);
-            StarSetting2.SetActive(true);
-            StarBigStar.SetActive(false);
-
-            StarSetting = true;
+            UserManager.Instance.StarSetting = true;
         }
         else
+        {
+            UserManager.Instance.StarSetting = false;
+        }
+
+        StarSet2();
+    }
+
+    public void StarSet2()
+    {
+        if (UserManager.Instance.StarSetting == true)
         {
             StarSetting1.SetActive(true);
             StarSetting2.SetActive(false);
             StarBigStar.SetActive(true);
-
-            StarSetting = false;
+        }
+        else
+        {
+            StarSetting1.SetActive(false);
+            StarSetting2.SetActive(true);
+            StarBigStar.SetActive(false);
         }
     }
 
@@ -344,7 +372,7 @@ public class SettingManager : MonoBehaviour
             UserManager.Instance.WorldStar[GameManager.Instance.worldIndex].StageStar[GameManager.Instance.stageIndex] = starIf;
         }
 
-        if (starIf >= 5 && UserManager.Instance.WorldBigStar[GameManager.Instance.worldIndex].StageBigStar[GameManager.Instance.worldIndex] == false)
+        if (starIf >= 5 && UserManager.Instance.WorldBigStar[GameManager.Instance.worldIndex-1].StageBigStar[GameManager.Instance.worldIndex] == false)
         {
             UserManager.Instance.bigStar = UserManager.Instance.bigStar + 1;
             UserManager.Instance.WorldBigStar[GameManager.Instance.worldIndex].StageBigStar[GameManager.Instance.worldIndex] = true;

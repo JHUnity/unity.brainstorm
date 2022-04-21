@@ -1,95 +1,39 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using DataInfo;
+using System;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
-public class DataManager : MonoBehaviour
+public static class DataManager
 {
-    static GameObject _container;
-    static GameObject Container
+    public static void Save(GameData data)
     {
-        get
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Path.Combine(Application.dataPath, "data.bin");
+        FileStream stream = File.Create(path);
+
+        formatter.Serialize(stream, data);
+        stream.Close();
+    }
+
+    public static GameData Load()
+    {
+        try
         {
-            return _container;
-        }
-    }
-    static DataManager _instance;
-    public static DataManager Instance
-    {
-        get
-        {
-            if (!_instance)
-            {
-                _container = new GameObject();
-                _container.name = "DataManager";
-                _instance = _container.AddComponent(typeof(DataManager)) as DataManager;
-                DontDestroyOnLoad(_container);
-            }
-            return _instance;
-        }
-    }
-
-    private void Start()
-    {
-        LoadData();
-        //SaveData();
-    }
-
-    private string dataPath;
-
-    public void Initialize()
-    {
-        dataPath = Application.dataPath + "/gameData.dat";
-    }
-
-    public void SaveData(GameData gameData)
-    {
-        BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Create(dataPath);
-
-        GameData data = new GameData();
-
-        data.ScoreSetting = gameData.ScoreSetting;
-        data.BGMSetting = gameData.BGMSetting;
-        data.SESetting = gameData.SESetting;
-        data.TimerSetting = gameData.TimerSetting;
-        data.StarSetting = gameData.StarSetting;
-
-        data.savePoint = gameData.savePoint;
-
-        data.star = gameData.star;
-        data.bigStar = gameData.bigStar;
-
-        data.WorldScore = gameData.WorldScore;
-        data.WorldAchive = gameData.WorldAchive;
-        data.WorldStar = gameData.WorldStar;
-        data.WorldBigStar = gameData.WorldBigStar;
-        data.WorldTime = gameData.WorldTime;
-        data.WorldLife = gameData.WorldLife;
-
-        bf.Serialize(file, data);
-        file.Close();
-    }
-
-    public GameData LoadData()
-    {
-        if(File.Exists(dataPath))
-        {
-            BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open(dataPath, FileMode.Open);
-
-            GameData data = (GameData)bf.Deserialize(file);
-            file.Close();
-
+            BinaryFormatter formatter = new BinaryFormatter();
+            string path = Path.Combine(Application.dataPath, "data.bin");
+            FileStream stream = File.OpenRead(path);
+            GameData data = (GameData)formatter.Deserialize(stream);
+            stream.Close();
             return data;
         }
-        else
+        catch(Exception e)
         {
-            GameData data = new GameData();
-
-            return data;
+            UserManager.Instance.loadOn = false;
+            Debug.Log(e.Message);
+            return default;
         }
+
     }
 }

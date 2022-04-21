@@ -1392,8 +1392,8 @@ MonoBehaviour:
   scoreSetting2: {fileID: 811667399}
   bgmVolume: {fileID: 1172593311}
   seVolume: {fileID: 1166990208}
-  ItemSetting1: {fileID: 1967868383}
-  ItemSetting2: {fileID: 1755495933}
+  ItemSetting1: {fileID: 1755495933}
+  ItemSetting2: {fileID: 1967868383}
   TimerSetting1: {fileID: 1123447395}
   TimerSetting2: {fileID: 1502186247}
   StarSetting1: {fileID: 631783593}
@@ -1422,14 +1422,8 @@ MonoBehaviour:
   starIf: 0
   starCalculate: 0
   Menuonoff: 0
-  Itemonoff: 0
   starText: {fileID: 1587563637}
   bigStarText: {fileID: 1328731174}
-  ScoreSetting: 0
-  BGMSetting: 0
-  SESetting: 0
-  TimerSetting: 0
-  StarSetting: 0
 --- !u!4 &288851401
 Transform:
   m_ObjectHideFlags: 0
@@ -6704,49 +6698,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1195533733
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1195533734}
-  - component: {fileID: 1195533735}
-  m_Layer: 0
-  m_Name: DataManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1195533734
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1195533733}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2010.2845, y: 909.5401, z: -3446.6387}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1195533735
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1195533733}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76d8b0e560abd4643aa06af6ebd211b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1223410041
 GameObject:
   m_ObjectHideFlags: 0
@@ -7555,6 +7506,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a0851ddd13ccf745ad33aac8d3975d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ScoreSetting: 0
+  BGMSetting: 0
+  SESetting: 0
+  ItemSetting: 0
+  TimerSetting: 0
+  StarSetting: 0
   star: 0
   bigStar: 0
   WorldScore:
@@ -7580,16 +7537,95 @@ MonoBehaviour:
     - 0
     - 0
     - 0
-  - StageScore: []
-  - StageScore: []
-  - StageScore: []
-  - StageScore: []
-  - StageScore: []
-  - StageScore: []
-  - StageScore: []
-  - StageScore: []
+  - StageScore:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - StageScore:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - StageScore:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - StageScore:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - StageScore:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - StageScore:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - StageScore:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - StageScore:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
   WorldAchive:
-  - StageAchive: []
   - StageAchive:
     - 0
     - 0
@@ -7601,38 +7637,128 @@ MonoBehaviour:
     - 0
     - 0
     - 0
-  - StageAchive: []
-  - StageAchive: []
-  - StageAchive: []
-  - StageAchive: []
-  - StageAchive: []
-  - StageAchive: []
-  - StageAchive: []
-  - StageAchive: []
+  - StageAchive:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - StageAchive:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - StageAchive:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - StageAchive:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - StageAchive:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - StageAchive:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - StageAchive:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - StageAchive:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - StageAchive:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
   WorldStar:
-  - StageStar: 
   - StageStar: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
-  - StageStar: 
-  - StageStar: 
-  - StageStar: 
-  - StageStar: 
-  - StageStar: 
-  - StageStar: 
-  - StageStar: 
-  - StageStar: 
+  - StageStar: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  - StageStar: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  - StageStar: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  - StageStar: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  - StageStar: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  - StageStar: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  - StageStar: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  - StageStar: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  - StageStar: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
   WorldBigStar:
-  - StageBigStar: 
   - StageBigStar: 00000000000000000000
-  - StageBigStar: 
-  - StageBigStar: 
-  - StageBigStar: 
-  - StageBigStar: 
-  - StageBigStar: 
-  - StageBigStar: 
-  - StageBigStar: 
-  - StageBigStar: 
+  - StageBigStar: 00000000000000000000
+  - StageBigStar: 00000000000000000000
+  - StageBigStar: 00000000000000000000
+  - StageBigStar: 00000000000000000000
+  - StageBigStar: 00000000000000000000
+  - StageBigStar: 00000000000000000000
+  - StageBigStar: 00000000000000000000
+  - StageBigStar: 00000000000000000000
+  - StageBigStar: 00000000000000000000
   WorldTime:
-  - StageTime: []
   - StageTime:
     - 0
     - 0
@@ -7644,25 +7770,117 @@ MonoBehaviour:
     - 0
     - 0
     - 0
-  - StageTime: []
-  - StageTime: []
-  - StageTime: []
-  - StageTime: []
-  - StageTime: []
-  - StageTime: []
-  - StageTime: []
-  - StageTime: []
+  - StageTime:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - StageTime:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - StageTime:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - StageTime:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - StageTime:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - StageTime:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - StageTime:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - StageTime:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - StageTime:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
   WorldLife:
-  - StageLife: 
   - StageLife: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
-  - StageLife: 
-  - StageLife: 
-  - StageLife: 
-  - StageLife: 
-  - StageLife: 
-  - StageLife: 
-  - StageLife: 
-  - StageLife: 
+  - StageLife: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  - StageLife: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  - StageLife: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  - StageLife: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  - StageLife: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  - StageLife: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  - StageLife: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  - StageLife: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  - StageLife: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  loadOn: 0
 --- !u!4 &1355969935
 Transform:
   m_ObjectHideFlags: 0
@@ -12858,35 +13076,11 @@ MonoBehaviour:
   WorldMaxTime:
   - StageMaxTime: []
   - StageMaxTime:
-    - 999999
+    - 0
     - 45
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-  - StageMaxTime: []
-  - StageMaxTime: []
-  - StageMaxTime: []
-  - StageMaxTime: []
-  - StageMaxTime: []
-  - StageMaxTime: []
-  - StageMaxTime: []
-  - StageMaxTime: []
   WorldMaxSize:
   - StageMaxSize: 
-  - StageMaxSize: 3f420f00320000000000000000000000000000000000000000000000000000000000000000000000
-  - StageMaxSize: 
-  - StageMaxSize: 
-  - StageMaxSize: 
-  - StageMaxSize: 
-  - StageMaxSize: 
-  - StageMaxSize: 
-  - StageMaxSize: 
-  - StageMaxSize: 
+  - StageMaxSize: 0000000032000000
 --- !u!4 &2051261110
 Transform:
   m_ObjectHideFlags: 0

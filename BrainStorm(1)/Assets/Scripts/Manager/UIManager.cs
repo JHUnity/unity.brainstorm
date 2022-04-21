@@ -78,7 +78,7 @@ public class UIManager : MonoBehaviour
 
     void EternityItem()
     {
-        if (SettingManager.Instance.Itemonoff == false)
+        if (UserManager.Instance.ItemSetting == false)
         {
             E_item.SetActive(false);
         }
@@ -90,7 +90,7 @@ public class UIManager : MonoBehaviour
 
     void Score()
     {
-        if (SettingManager.Instance.ScoreSetting == false)
+        if (UserManager.Instance.ScoreSetting == false)
         {
             Score1.SetActive(true);
             Score2.SetActive(false);
@@ -104,13 +104,13 @@ public class UIManager : MonoBehaviour
 
     void Timer()
     {
-        if (SettingManager.Instance.TimerSetting == false)
+        if (UserManager.Instance.TimerSetting == false)
         {
-            TimeR.SetActive(true);
+            TimeR.SetActive(false);
         }
         else
         {
-            TimeR.SetActive(false);
+            TimeR.SetActive(true);
         }
     }
 

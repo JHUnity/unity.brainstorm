@@ -1,58 +1,25 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System;
 
-[System.Serializable]
-public class PlayerScoreData
+[Serializable]
+public class GameData
 {
-    public float[] StageScore;
-}
-[System.Serializable]
-public class PlayerAchiveData
-{
-    public float[] StageAchive;
-}
-[System.Serializable]
-public class PlayerStarData
-{
-    public int[] StageStar;
-}
-[System.Serializable]
-public class PlayerBigStarData
-{
-    public bool[] StageBigStar;
-}
-[System.Serializable]
-public class PlayerTimeData
-{
-    public float[] StageTime;
-}
-[System.Serializable]
-public class PlayerLifeData
-{
-    public int[] StageLife;
-}
+    public bool ScoreSetting;
+    public float BGMSetting;
+    public float SESetting;
+    public bool ItemSetting;
+    public bool TimerSetting;
+    public bool StarSetting;
 
-namespace DataInfo
-{
-    [System.Serializable]
-    public class GameData
-    {
-        public bool ScoreSetting;
-        public float BGMSetting;
-        public float SESetting;
-        public bool TimerSetting;
-        public bool StarSetting;
+    public int star;
+    public int bigStar;
 
-        public int savePoint;
-
-        public int star;
-        public int bigStar;
-
-        public PlayerScoreData[] WorldScore;
-        public PlayerAchiveData[] WorldAchive;
-        public PlayerStarData[] WorldStar;
-        public PlayerBigStarData[] WorldBigStar;
-        public PlayerTimeData[] WorldTime;
-        public PlayerLifeData[] WorldLife;
-    }
+    public float[,] WorldScore = new float[10, 10];
+    public float[,] WorldAchive = new float[10, 10];
+    public int[,] WorldStar = new int[10, 10];
+    public bool[,] WorldBigStar = new bool[10, 10];
+    public float[,] WorldTime = new float[10, 10];
+    public int[,] WorldLife = new int[10, 10];
 }
 
