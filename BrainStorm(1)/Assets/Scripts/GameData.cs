@@ -15,11 +15,13 @@ public class GameData
     public int star;
     public int bigStar;
 
-    public float[,] WorldScore = new float[10, 10];
-    public float[,] WorldAchive = new float[10, 10];
-    public int[,] WorldStar = new int[10, 10];
-    public bool[,] WorldBigStar = new bool[10, 10];
-    public float[,] WorldTime = new float[10, 10];
-    public int[,] WorldLife = new int[10, 10];
+    public float[,] WorldScore = new float[100, 100];
+    public float[,] WorldAchive = new float[100, 100];
+    public int[,] WorldStar = new int[100, 100];
+    public bool[,] WorldBigStar = new bool[100, 100];
+    public float[,] WorldTime = new float[100, 100];
+    public int[,] WorldLife = new int[100, 100];
+    public bool[,] WorldNormalUnlock = new bool[100, 100];
+    public bool[,] WorldSpecialUnlock = new bool[100, 100];
 }
 

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System;
 using UnityEngine;
-
+/*
 [Serializable]
 public class ScoreData
 {
@@ -33,8 +33,19 @@ public class LifeData
 {
     public int[] StageLife = new int[10];
 }
-
 [Serializable]
+public class NormalUnlockData
+{
+    public bool[] StageNormalUnlock = new bool[10];
+}
+[Serializable]
+public class SpecialUnlockData
+{
+    public bool[] StageSpecialUnlock = new bool[10];
+}
+*/
+
+//[Serializable]
 public class UserManager : MonoBehaviour
 {
     public bool ScoreSetting;
@@ -47,12 +58,22 @@ public class UserManager : MonoBehaviour
     public int star;
     public int bigStar;
 
+    /*
     public ScoreData[] WorldScore = new ScoreData[10];
     public AchiveData[] WorldAchive = new AchiveData[10];
     public StarData[] WorldStar = new StarData[10];
     public BigStarData[] WorldBigStar = new BigStarData[10];
     public TimeData[] WorldTime = new TimeData[10];
     public LifeData[] WorldLife = new LifeData[10];
+    */
+    public float[,] WorldScore = new float[100, 100];
+    public float[,] WorldAchive = new float[100, 100];
+    public int[,] WorldStar = new int[100, 100];
+    public bool[,] WorldBigStar = new bool[100, 100];
+    public float[,] WorldTime = new float[100, 100];
+    public int[,] WorldLife = new int[100, 100];
+    public bool[,] WorldNormalUnlock = new bool[100, 100];
+    public bool[,] WorldSpecialUnlock = new bool[100, 100];
 
     public bool loadOn;
 
@@ -70,51 +91,67 @@ public class UserManager : MonoBehaviour
         save.star = star;
         save.bigStar = bigStar;
 
-        for (int i = 1; i < WorldScore.Length; i++)
+        for (int i = 1; i < 100; i++)
         {
-            for (int j = 1; j < WorldScore[i].StageScore.Length; j++)
+            for (int j = 1; j < 100; j++)
             {
-                save.WorldScore[i,j] = WorldScore[i].StageScore[j];
-            }
-        }
-        
-        for (int i = 1; i < WorldAchive.Length; i++)
-        {
-            for (int j = 1; j < WorldAchive[i].StageAchive.Length; j++)
-            {
-                save.WorldAchive[i,j] = WorldAchive[i].StageAchive[j];
+                save.WorldScore[i, j] = WorldScore[i, j];
             }
         }
 
-        for (int i = 1; i < WorldStar.Length; i++)
+        for (int i = 1; i < 100; i++)
         {
-            for (int j = 1; j < WorldStar[i].StageStar.Length; j++)
+            for (int j = 1; j < 100; j++)
             {
-                save.WorldStar[i,j] = WorldStar[i].StageStar[j];
+                save.WorldAchive[i, j] = WorldAchive[i, j];
             }
         }
 
-        for (int i = 1; i < WorldBigStar.Length; i++)
+        for (int i = 1; i < 100; i++)
         {
-            for (int j = 1; j < WorldBigStar[i].StageBigStar.Length; j++)
+            for (int j = 1; j < 100; j++)
             {
-                save.WorldBigStar[i,j] = WorldBigStar[i].StageBigStar[j];
+                save.WorldStar[i, j] = WorldStar[i, j];
             }
         }
 
-        for (int i = 1; i < WorldTime.Length; i++)
+        for (int i = 1; i < 100; i++)
         {
-            for (int j = 1; j < WorldTime[i].StageTime.Length; j++)
+            for (int j = 1; j < 100; j++)
             {
-                save.WorldTime[i,j] = WorldTime[i].StageTime[j];
+                save.WorldBigStar[i, j] = WorldBigStar[i, j];
             }
         }
 
-        for (int i = 1; i < WorldLife.Length; i++)
+        for (int i = 1; i < 100; i++)
         {
-            for (int j = 1; j < WorldLife[i].StageLife.Length; j++)
+            for (int j = 1; j < 100; j++)
             {
-                save.WorldLife[i,j] = WorldLife[i].StageLife[j];
+                save.WorldTime[i, j] = WorldTime[i, j];
+            }
+        }
+
+        for (int i = 1; i < 100; i++)
+        {
+            for (int j = 1; j < 100; j++)
+            {
+                save.WorldLife[i, j] = WorldLife[i, j];
+            }
+        }
+
+        for (int i = 1; i < 100; i++)
+        {
+            for (int j = 1; j < 100; j++)
+            {
+                save.WorldNormalUnlock[i, j] = WorldNormalUnlock[i, j];
+            }
+        }
+
+        for (int i = 1; i < 100; i++)
+        {
+            for (int j = 1; j < 100; j++)
+            {
+                save.WorldSpecialUnlock[i, j] = WorldSpecialUnlock[i, j];
             }
         }
 
@@ -142,6 +179,7 @@ public class UserManager : MonoBehaviour
             star = save.star;
             bigStar = save.bigStar;
 
+            /*
             for (int i = 1; i < WorldScore.Length; i++)
             {
                 for (int j = 1; j < WorldScore[i].StageScore.Length; j++)
@@ -187,6 +225,70 @@ public class UserManager : MonoBehaviour
                 for (int j = 1; j < WorldLife[i].StageLife.Length; j++)
                 {
                      WorldLife[i].StageLife[j] = save.WorldLife[i, j];
+                }
+            }
+            */
+            for (int i = 1; i < 100; i++)
+            {
+                for (int j = 1; j < 100; j++)
+                {
+                    WorldScore[i, j] = save.WorldScore[i, j];
+                }
+            }
+
+            for (int i = 1; i < 100; i++)
+            {
+                for (int j = 1; j < 100; j++)
+                {
+                    WorldAchive[i, j] = save.WorldAchive[i, j];
+                }
+            }
+
+            for (int i = 1; i < 100; i++)
+            {
+                for (int j = 1; j < 100; j++)
+                {
+                    WorldStar[i, j] = save.WorldStar[i, j];
+                }
+            }
+
+            for (int i = 1; i < 100; i++)
+            {
+                for (int j = 1; j < 100; j++)
+                {
+                    WorldBigStar[i, j] = save.WorldBigStar[i, j];
+                }
+            }
+
+            for (int i = 1; i < 100; i++)
+            {
+                for (int j = 1; j < 100; j++)
+                {
+                    WorldTime[i, j] = save.WorldTime[i, j];
+                }
+            }
+
+            for (int i = 1; i < 100; i++)
+            {
+                for (int j = 1; j < 100; j++)
+                {
+                    WorldLife[i, j] = save.WorldLife[i, j];
+                }
+            }
+
+            for (int i = 1; i < 100; i++)
+            {
+                for (int j = 1; j < 100; j++)
+                {
+                    WorldNormalUnlock[i, j] = save.WorldNormalUnlock[i, j];
+                }
+            }
+
+            for (int i = 1; i < 100; i++)
+            {
+                for (int j = 1; j < 100; j++)
+                {
+                    WorldSpecialUnlock[i, j] = save.WorldSpecialUnlock[i, j];
                 }
             }
         }

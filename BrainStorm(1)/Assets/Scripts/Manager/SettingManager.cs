@@ -366,42 +366,48 @@ public class SettingManager : MonoBehaviour
         clearStar[starIf - 1].SetActive(true);
 
         //별 획득, 저장
-        if (starIf >= UserManager.Instance.WorldStar[GameManager.Instance.worldIndex].StageStar[GameManager.Instance.worldIndex])
+        if (starIf >= UserManager.Instance.WorldStar[GameManager.Instance.worldIndex, GameManager.Instance.stageIndex])
         {
-            UserManager.Instance.star = UserManager.Instance.star + (starIf - UserManager.Instance.WorldStar[GameManager.Instance.worldIndex].StageStar[GameManager.Instance.stageIndex]);
-            UserManager.Instance.WorldStar[GameManager.Instance.worldIndex].StageStar[GameManager.Instance.stageIndex] = starIf;
+            UserManager.Instance.star = UserManager.Instance.star + (starIf - UserManager.Instance.WorldStar[GameManager.Instance.worldIndex, GameManager.Instance.stageIndex]);
+            UserManager.Instance.WorldStar[GameManager.Instance.worldIndex, GameManager.Instance.stageIndex] = starIf;
         }
 
-        if (starIf >= 5 && UserManager.Instance.WorldBigStar[GameManager.Instance.worldIndex-1].StageBigStar[GameManager.Instance.worldIndex] == false)
+        if (starIf >= 5 && UserManager.Instance.WorldBigStar[GameManager.Instance.worldIndex, GameManager.Instance.stageIndex] == false)
         {
             UserManager.Instance.bigStar = UserManager.Instance.bigStar + 1;
-            UserManager.Instance.WorldBigStar[GameManager.Instance.worldIndex].StageBigStar[GameManager.Instance.worldIndex] = true;
+            UserManager.Instance.WorldBigStar[GameManager.Instance.worldIndex, GameManager.Instance.stageIndex] = true;
         }
 
         //스테이지 기록 저장
-        if (GameManager.Instance.stageTime <= UserManager.Instance.WorldTime[GameManager.Instance.worldIndex].StageTime[GameManager.Instance.stageIndex])
+        if (GameManager.Instance.stageTime <= UserManager.Instance.WorldTime[GameManager.Instance.worldIndex, GameManager.Instance.stageIndex])
         {
-            UserManager.Instance.WorldTime[GameManager.Instance.worldIndex].StageTime[GameManager.Instance.stageIndex] = GameManager.Instance.stageTime;
+            UserManager.Instance.WorldTime[GameManager.Instance.worldIndex, GameManager.Instance.stageIndex] = GameManager.Instance.stageTime;
         }
 
-        if (UserManager.Instance.WorldTime[GameManager.Instance.worldIndex].StageTime[GameManager.Instance.stageIndex] == 0)
+        if (UserManager.Instance.WorldTime[GameManager.Instance.worldIndex, GameManager.Instance.stageIndex] == 0)
         {
-            UserManager.Instance.WorldTime[GameManager.Instance.worldIndex].StageTime[GameManager.Instance.stageIndex] = GameManager.Instance.stageTime;
+            UserManager.Instance.WorldTime[GameManager.Instance.worldIndex, GameManager.Instance.stageIndex] = GameManager.Instance.stageTime;
         }
 
-        if (GameManager.Instance.stageScore >= UserManager.Instance.WorldScore[GameManager.Instance.worldIndex].StageScore[GameManager.Instance.stageIndex])
+        if (GameManager.Instance.stageScore >= UserManager.Instance.WorldScore[GameManager.Instance.worldIndex, GameManager.Instance.stageIndex])
         {
-            UserManager.Instance.WorldScore[GameManager.Instance.worldIndex].StageScore[GameManager.Instance.stageIndex] = GameManager.Instance.stageScore;
+            UserManager.Instance.WorldScore[GameManager.Instance.worldIndex, GameManager.Instance.stageIndex] = GameManager.Instance.stageScore;
         }
 
-        if ((GameManager.Instance.stageScore / GameManager.Instance.maxStageScore) >= UserManager.Instance.WorldAchive[GameManager.Instance.worldIndex].StageAchive[GameManager.Instance.stageIndex])
+        if ((GameManager.Instance.stageScore / GameManager.Instance.maxStageScore) >= UserManager.Instance.WorldAchive[GameManager.Instance.worldIndex, GameManager.Instance.stageIndex])
         {
-            UserManager.Instance.WorldAchive[GameManager.Instance.worldIndex].StageAchive[GameManager.Instance.stageIndex] = GameManager.Instance.stageScore / GameManager.Instance.maxStageScore;
+            UserManager.Instance.WorldAchive[GameManager.Instance.worldIndex, GameManager.Instance.stageIndex] = GameManager.Instance.stageScore / GameManager.Instance.maxStageScore;
         }
 
-        if (GameManager.Instance.playerHP >= UserManager.Instance.WorldLife[GameManager.Instance.worldIndex].StageLife[GameManager.Instance.stageIndex])
+        if (GameManager.Instance.playerHP >= UserManager.Instance.WorldLife[GameManager.Instance.worldIndex, GameManager.Instance.stageIndex])
         {
-            UserManager.Instance.WorldLife[GameManager.Instance.worldIndex].StageLife[GameManager.Instance.stageIndex] = GameManager.Instance.playerHP;
+            UserManager.Instance.WorldLife[GameManager.Instance.worldIndex, GameManager.Instance.stageIndex] = GameManager.Instance.playerHP;
+        }
+
+        //다음 스테이지 해금
+        if (UserManager.Instance.WorldNormalUnlock[GameManager.Instance.worldIndex, GameManager.Instance.stageIndex+1] == false)
+        {
+            UserManager.Instance.WorldNormalUnlock[GameManager.Instance.worldIndex, GameManager.Instance.stageIndex + 1] = true;
         }
 
         //클리어 버튼 활성화
