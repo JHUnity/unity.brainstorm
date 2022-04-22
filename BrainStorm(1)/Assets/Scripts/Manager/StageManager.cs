@@ -78,6 +78,12 @@ public class StageManager : MonoBehaviour
         StartPop();
     }
 
+    public void goStage31()
+    {
+        GameManager.Instance.stageIndex = GameManager.Instance.stageIndex = 31;
+        StartPop();
+    }
+
     void Start()
     {
         StageSelect();

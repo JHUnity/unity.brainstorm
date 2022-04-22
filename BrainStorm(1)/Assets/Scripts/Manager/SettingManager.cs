@@ -404,9 +404,12 @@ public class SettingManager : MonoBehaviour
         }
 
         //다음 스테이지 해금
-        if (UserManager.Instance.WorldNormalUnlock[GameManager.Instance.worldIndex, GameManager.Instance.stageIndex + 1] == false)
+        if(GameManager.Instance.stageIndex < GameManager.Instance.WorldNormalStage[GameManager.Instance.stageIndex])
         {
-            UserManager.Instance.WorldNormalUnlock[GameManager.Instance.worldIndex, GameManager.Instance.stageIndex + 1] = true;
+            if (UserManager.Instance.WorldNormalUnlock[GameManager.Instance.worldIndex, GameManager.Instance.stageIndex + 1] == false)
+            {
+                UserManager.Instance.WorldNormalUnlock[GameManager.Instance.worldIndex, GameManager.Instance.stageIndex + 1] = true;
+            }
         }
 
         //클리어 버튼 활성화
@@ -453,12 +456,20 @@ public class SettingManager : MonoBehaviour
 
     public void ClearPopYes()
     {
-        GameManager.Instance.stageIndex = GameManager.Instance.stageIndex +1;
-        GameManager.Instance.GameReset();
+        if (GameManager.Instance.stageIndex < GameManager.Instance.WorldNormalStage[GameManager.Instance.stageIndex])
+        {
+            GameManager.Instance.stageIndex = GameManager.Instance.stageIndex + 1;
+            GameManager.Instance.GameReset();
 
-        Time.timeScale = 1;
-        clearPop.SetActive(false);
-        clearUIDisabled();
-        SceneManager.LoadScene("Game");
+            Time.timeScale = 1;
+            clearPop.SetActive(false);
+            clearUIDisabled();
+            SceneManager.LoadScene("Game");
+        }
+        else
+        {
+            ClearPopNo();
+        }
+            
     }
 }

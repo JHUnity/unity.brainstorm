@@ -16,6 +16,18 @@ public class MapSizeData
     public int[] StageMaxSize;
 }
 
+[System.Serializable]
+public class UnlockStarData
+{
+    public float[] UnlockStageStar;
+}
+
+[System.Serializable]
+public class UnlockBigStarData
+{
+    public float[] UnlockStageBigStar;
+}
+
 public class GameManager : MonoBehaviour
 {
     public int playerHP;
@@ -32,8 +44,12 @@ public class GameManager : MonoBehaviour
     public float stageTime;
     public int stageMapSize;
 
+    public int[] WorldNormalStage;
+
     public MaxTimeData[] WorldMaxTime;
     public MapSizeData[] WorldMaxSize;
+    public UnlockStarData[] UnlockWorldStar;
+    public UnlockBigStarData[] UnlockWorldBigStar;
 
     private static GameManager instance;
     public static GameManager Instance

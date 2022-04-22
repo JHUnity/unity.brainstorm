@@ -58,14 +58,6 @@ public class UserManager : MonoBehaviour
     public int star;
     public int bigStar;
 
-    /*
-    public ScoreData[] WorldScore = new ScoreData[10];
-    public AchiveData[] WorldAchive = new AchiveData[10];
-    public StarData[] WorldStar = new StarData[10];
-    public BigStarData[] WorldBigStar = new BigStarData[10];
-    public TimeData[] WorldTime = new TimeData[10];
-    public LifeData[] WorldLife = new LifeData[10];
-    */
     public float[,] WorldScore = new float[100, 100];
     public float[,] WorldAchive = new float[100, 100];
     public int[,] WorldStar = new int[100, 100];
@@ -73,7 +65,6 @@ public class UserManager : MonoBehaviour
     public float[,] WorldTime = new float[100, 100];
     public int[,] WorldLife = new int[100, 100];
     public bool[,] WorldNormalUnlock = new bool[100, 100];
-    public bool[,] WorldSpecialUnlock = new bool[100, 100];
 
     public bool loadOn;
 
@@ -147,14 +138,6 @@ public class UserManager : MonoBehaviour
             }
         }
 
-        for (int i = 1; i < 100; i++)
-        {
-            for (int j = 1; j < 100; j++)
-            {
-                save.WorldSpecialUnlock[i, j] = WorldSpecialUnlock[i, j];
-            }
-        }
-
         DataManager.Save(save);
     }
 
@@ -179,55 +162,6 @@ public class UserManager : MonoBehaviour
             star = save.star;
             bigStar = save.bigStar;
 
-            /*
-            for (int i = 1; i < WorldScore.Length; i++)
-            {
-                for (int j = 1; j < WorldScore[i].StageScore.Length; j++)
-                {
-                    WorldScore[i].StageScore[j] = save.WorldScore[i, j];
-                }
-            }
-
-            for (int i = 1; i < WorldAchive.Length; i++)
-            {
-                for (int j = 1; j < WorldAchive[i].StageAchive.Length; j++)
-                {
-                     WorldAchive[i].StageAchive[j] = save.WorldAchive[i, j];
-                }
-            }
-
-            for (int i = 1; i < WorldStar.Length; i++)
-            {
-                for (int j = 1; j < WorldStar[i].StageStar.Length; j++)
-                {
-                    WorldStar[i].StageStar[j] = save.WorldStar[i, j];
-                }
-            }
-
-            for (int i = 1; i < WorldBigStar.Length; i++)
-            {
-                for (int j = 1; j < WorldBigStar[i].StageBigStar.Length; j++)
-                {
-                    WorldBigStar[i].StageBigStar[j] = save.WorldBigStar[i, j];
-                }
-            }
-
-            for (int i = 1; i < WorldTime.Length; i++)
-            {
-                for (int j = 1; j < WorldTime[i].StageTime.Length; j++)
-                {
-                    WorldTime[i].StageTime[j] = save.WorldTime[i, j];
-                }
-            }
-
-            for (int i = 1; i < WorldLife.Length; i++)
-            {
-                for (int j = 1; j < WorldLife[i].StageLife.Length; j++)
-                {
-                     WorldLife[i].StageLife[j] = save.WorldLife[i, j];
-                }
-            }
-            */
             for (int i = 1; i < 100; i++)
             {
                 for (int j = 1; j < 100; j++)
@@ -281,14 +215,6 @@ public class UserManager : MonoBehaviour
                 for (int j = 1; j < 100; j++)
                 {
                     WorldNormalUnlock[i, j] = save.WorldNormalUnlock[i, j];
-                }
-            }
-
-            for (int i = 1; i < 100; i++)
-            {
-                for (int j = 1; j < 100; j++)
-                {
-                    WorldSpecialUnlock[i, j] = save.WorldSpecialUnlock[i, j];
                 }
             }
         }
