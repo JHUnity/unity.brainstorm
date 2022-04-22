@@ -122,7 +122,7 @@ public class StageManager : MonoBehaviour
 
         if (UserManager.Instance.WorldStar[GameManager.Instance.worldIndex, GameManager.Instance.stageIndex] >= 1)
         {
-            Star[UserManager.Instance.WorldStar[GameManager.Instance.worldIndex, GameManager.Instance.stageIndex]].SetActive(true);
+            Star[UserManager.Instance.WorldStar[GameManager.Instance.worldIndex, GameManager.Instance.stageIndex]-1].SetActive(true);
         }
     }
 }

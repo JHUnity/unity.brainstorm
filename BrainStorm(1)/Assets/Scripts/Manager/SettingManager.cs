@@ -352,7 +352,6 @@ public class SettingManager : MonoBehaviour
             {
                 starIf = starIf + 1;
             }
-            starIf4 = 0;
         }
        
 
@@ -405,7 +404,7 @@ public class SettingManager : MonoBehaviour
         }
 
         //다음 스테이지 해금
-        if (UserManager.Instance.WorldNormalUnlock[GameManager.Instance.worldIndex, GameManager.Instance.stageIndex+1] == false)
+        if (UserManager.Instance.WorldNormalUnlock[GameManager.Instance.worldIndex, GameManager.Instance.stageIndex + 1] == false)
         {
             UserManager.Instance.WorldNormalUnlock[GameManager.Instance.worldIndex, GameManager.Instance.stageIndex + 1] = true;
         }
