@@ -11,6 +11,8 @@ public class Door : MonoBehaviour
     public Transform door1;
     public Transform door2;
 
-    public GameObject doorclosed;
-    public GameObject dooropen;
+    public GameObject doorclosed1;
+    public GameObject doorclosed2;
+    public GameObject dooropen1;
+    public GameObject dooropen2;
 }

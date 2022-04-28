@@ -15,8 +15,10 @@ public class DoorB : Door
                     GameManager.Instance.SitemNumber = 0;
                     GameManager.Instance.stageScore = GameManager.Instance.stageScore + 500;
 
-                    doorclosed.SetActive(false);
-                    dooropen.SetActive(true);
+                    doorclosed1.SetActive(false);
+                    doorclosed2.SetActive(false);
+                    dooropen1.SetActive(true);
+                    dooropen2.SetActive(true);
 
                     player.doorOpen[doorKeyNum - 1] = true;
                 }

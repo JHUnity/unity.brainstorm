@@ -83,7 +83,7 @@ public class Player : Unit
 
     void PlayerJump()
     {
-        if (inputJump == true & !anim.GetBool("isJumping"))
+        if (inputJump == true && !anim.GetBool("isJumping"))
         {
             anim.SetBool("isJumping", true);
             if (wallCollision == false && player.gameObject.layer == LayerMask.NameToLayer("Player"))
@@ -216,7 +216,7 @@ public class Player : Unit
 
     void Wall()
     {
-        if(transform.position.x <= 0 || transform.position.x >= GameManager.Instance.stageMapSize)
+        if(transform.position.x <= 0 || transform.position.x >= GameManager.Instance.stageMapSize || transform.position.y < -2)
         {
             GetComponent<CapsuleCollider2D>().isTrigger = false;
             wallCollision = true;
