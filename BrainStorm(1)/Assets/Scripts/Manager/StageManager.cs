@@ -6,16 +6,32 @@ using UnityEngine.SceneManagement;
 
 public class StageManager : MonoBehaviour
 {
+    public UnlockedManager unSys;
+
     public GameObject[] Worlds;
 
     public GameObject startPop;
+    public GameObject unlockedPop;
 
     public Text PopStage;
     public Text PopScore;
     public Text PopTime;
     public GameObject[] PopHealth;
 
+    public Text unPopStage;
+    public Text unPopNeedStar;
+    public Text unPopNeedBigStar;
+    public Text unPopAfterStar;
+    public Text unPopAfterBigStar;
+
+    public GameObject unlockedOn;
+
     public GameObject[] Star;
+
+    void Update()
+    {
+        UnlockedOn();
+    }
 
     public void goWorld()
     {
@@ -32,56 +48,126 @@ public class StageManager : MonoBehaviour
     public void goStage2()
     {
         GameManager.Instance.stageIndex = GameManager.Instance.stageIndex = 2;
-        StartPop();
+        if (UserManager.Instance.WorldNormalUnlock[GameManager.Instance.worldIndex, GameManager.Instance.stageIndex] == true)
+        {
+            StartPop();
+        }
+        else
+        {
+            UnlockedPop();
+        }
     }
     public void goStage3()
     {
         GameManager.Instance.stageIndex = GameManager.Instance.stageIndex = 3;
-        StartPop();
+        if (UserManager.Instance.WorldNormalUnlock[GameManager.Instance.worldIndex, GameManager.Instance.stageIndex] == true)
+        {
+            StartPop();
+        }
+        else
+        {
+            UnlockedPop();
+        }
     }
 
     public void goStage4()
     {
         GameManager.Instance.stageIndex = GameManager.Instance.stageIndex = 4;
-        StartPop();
+        if (UserManager.Instance.WorldNormalUnlock[GameManager.Instance.worldIndex, GameManager.Instance.stageIndex] == true)
+        {
+            StartPop();
+        }
+        else
+        {
+            UnlockedPop();
+        }
     }
     public void goStage5()
     {
         GameManager.Instance.stageIndex = GameManager.Instance.stageIndex = 5;
-        StartPop();
+        if (UserManager.Instance.WorldNormalUnlock[GameManager.Instance.worldIndex, GameManager.Instance.stageIndex] == true)
+        {
+            StartPop();
+        }
+        else
+        {
+            UnlockedPop();
+        }
     }
     public void goStage6()
     {
         GameManager.Instance.stageIndex = GameManager.Instance.stageIndex = 6;
-        StartPop();
+        if (UserManager.Instance.WorldNormalUnlock[GameManager.Instance.worldIndex, GameManager.Instance.stageIndex] == true)
+        {
+            StartPop();
+        }
+        else
+        {
+            UnlockedPop();
+        }
     }
 
     public void goStage7()
     {
         GameManager.Instance.stageIndex = GameManager.Instance.stageIndex = 7;
-        StartPop();
+        if (UserManager.Instance.WorldNormalUnlock[GameManager.Instance.worldIndex, GameManager.Instance.stageIndex] == true)
+        {
+            StartPop();
+        }
+        else
+        {
+            UnlockedPop();
+        }
     }
     public void goStage8()
     {
         GameManager.Instance.stageIndex = GameManager.Instance.stageIndex = 8;
-        StartPop();
+        if (UserManager.Instance.WorldNormalUnlock[GameManager.Instance.worldIndex, GameManager.Instance.stageIndex] == true)
+        {
+            StartPop();
+        }
+        else
+        {
+            UnlockedPop();
+        }
     }
 
     public void goStage9()
     {
         GameManager.Instance.stageIndex = GameManager.Instance.stageIndex = 9;
-        StartPop();
+        if (UserManager.Instance.WorldNormalUnlock[GameManager.Instance.worldIndex, GameManager.Instance.stageIndex] == true)
+        {
+            StartPop();
+        }
+        else
+        {
+            UnlockedPop();
+        }
     }
     public void goStage10()
     {
         GameManager.Instance.stageIndex = GameManager.Instance.stageIndex = 10;
-        StartPop();
+        if (UserManager.Instance.WorldNormalUnlock[GameManager.Instance.worldIndex, GameManager.Instance.stageIndex] == true)
+        {
+            StartPop();
+        }
+        else
+        {
+            UnlockedPop();
+        }
     }
 
     public void goStage31()
     {
         GameManager.Instance.stageIndex = GameManager.Instance.stageIndex = 31;
-        StartPop();
+        if (UserManager.Instance.WorldNormalUnlock[GameManager.Instance.worldIndex, GameManager.Instance.stageIndex] == true)
+        {
+            StartPop();
+        }
+        else
+        {
+            UnlockedPop();
+        }
     }
 
     void Start()
@@ -129,6 +215,58 @@ public class StageManager : MonoBehaviour
         if (UserManager.Instance.WorldStar[GameManager.Instance.worldIndex, GameManager.Instance.stageIndex] >= 1)
         {
             Star[UserManager.Instance.WorldStar[GameManager.Instance.worldIndex, GameManager.Instance.stageIndex]-1].SetActive(true);
+        }
+    }
+
+    void UnlockedPop()
+    {
+        UnlockedText();
+        unlockedPop.SetActive(true);
+    }
+
+    public void UnlockedPopNo()
+    {
+        StageSelect();
+        GameManager.Instance.stageIndex = 0;
+
+        unlockedPop.SetActive(false);
+    }
+
+    public void UnlockedPopYes()
+    {
+        UserManager.Instance.star = UserManager.Instance.star - GameManager.Instance.UnlockWorldStar[GameManager.Instance.worldIndex].UnlockStageStar[GameManager.Instance.stageIndex];
+        UserManager.Instance.bigStar = UserManager.Instance.bigStar - GameManager.Instance.UnlockWorldBigStar[GameManager.Instance.worldIndex].UnlockStageBigStar[GameManager.Instance.stageIndex];
+
+        UserManager.Instance.WorldNormalUnlock[GameManager.Instance.worldIndex, GameManager.Instance.stageIndex] = true;
+        unSys.UnlockedSystem();
+        unlockedPop.SetActive(false);
+        StartPop();
+    }
+
+    void UnlockedText()
+    {
+        unPopStage.text = "World " + (GameManager.Instance.worldIndex) + "-" + (GameManager.Instance.stageIndex).ToString();
+        unPopNeedStar.text = "x" + (GameManager.Instance.UnlockWorldStar[GameManager.Instance.worldIndex].UnlockStageStar[GameManager.Instance.stageIndex]).ToString();
+        unPopNeedBigStar.text = "x" + (GameManager.Instance.UnlockWorldBigStar[GameManager.Instance.worldIndex].UnlockStageBigStar[GameManager.Instance.stageIndex]).ToString();
+        
+    }
+
+    void UnlockedOn()
+    {
+        if (GameManager.Instance.stageIndex >= 1)
+        {
+            if (UserManager.Instance.star >= GameManager.Instance.UnlockWorldStar[GameManager.Instance.worldIndex]
+                .UnlockStageStar[GameManager.Instance.stageIndex] && UserManager.Instance.bigStar >= GameManager.Instance.UnlockWorldBigStar[GameManager.Instance.worldIndex]
+                .UnlockStageBigStar[GameManager.Instance.stageIndex])
+            {
+                unlockedOn.SetActive(true);
+                unPopAfterStar.text = "   →  x" + (UserManager.Instance.star - GameManager.Instance.UnlockWorldStar[GameManager.Instance.worldIndex].UnlockStageStar[GameManager.Instance.stageIndex]).ToString();
+                unPopAfterBigStar.text = "   →  x" + (UserManager.Instance.bigStar - GameManager.Instance.UnlockWorldBigStar[GameManager.Instance.worldIndex].UnlockStageBigStar[GameManager.Instance.stageIndex]).ToString();
+            }
+            else
+            {
+                unlockedOn.SetActive(false);
+            }
         }
     }
 }

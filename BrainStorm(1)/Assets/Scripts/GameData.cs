@@ -22,5 +22,6 @@ public class GameData
     public float[,] WorldTime = new float[100, 100];
     public int[,] WorldLife = new int[100, 100];
     public bool[,] WorldNormalUnlock = new bool[100, 100];
+    public bool[] WorldUnlock = new bool[100];
 }
 

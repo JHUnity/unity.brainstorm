@@ -2093,7 +2093,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -100}
-  m_SizeDelta: {x: 500, y: 200}
+  m_SizeDelta: {x: 1100, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &420105737
 MonoBehaviour:
@@ -2141,7 +2141,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Stage
+  m_Text: World
 --- !u!222 &420105739
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2664,6 +2664,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d9d187a594ba9a48b4e78e01ca5bb1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unSys: {fileID: 0}
   Worlds:
   - {fileID: 0}
   - {fileID: 1966668765}
@@ -2676,6 +2677,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   startPop: {fileID: 2000042718}
+  unlockedPop: {fileID: 1932523895}
   PopStage: {fileID: 296438346}
   PopScore: {fileID: 1042762498}
   PopTime: {fileID: 1320137892}
@@ -2683,6 +2685,12 @@ MonoBehaviour:
   - {fileID: 17312905}
   - {fileID: 469065192}
   - {fileID: 1221832797}
+  unPopStage: {fileID: 420105738}
+  unPopNeedStar: {fileID: 130473590}
+  unPopNeedBigStar: {fileID: 576701345}
+  unPopAfterStar: {fileID: 1052310510}
+  unPopAfterBigStar: {fileID: 917982151}
+  unlockedOn: {fileID: 1567272860}
   Star:
   - {fileID: 1232184283}
   - {fileID: 70936786}
@@ -5162,7 +5170,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -175, y: 40}
+  m_AnchoredPosition: {x: 375, y: -50}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &895122974
@@ -5417,7 +5425,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 0.29411766}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -6293,7 +6301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 0.29411766}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -6830,7 +6838,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 473644386}
-          m_MethodName: StartPopNo
+          m_MethodName: UnlockedPopNo
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -8347,6 +8355,28 @@ MonoBehaviour:
   - {fileID: 1700810966}
   - {fileID: 1623733657}
   - {fileID: 2138373340}
+  - {fileID: 2138373340}
+  - {fileID: 2138373340}
+  - {fileID: 2138373340}
+  - {fileID: 2138373340}
+  - {fileID: 2138373340}
+  - {fileID: 2138373340}
+  - {fileID: 2138373340}
+  - {fileID: 2138373340}
+  - {fileID: 2138373340}
+  - {fileID: 2138373340}
+  - {fileID: 2138373340}
+  - {fileID: 2138373340}
+  - {fileID: 2138373340}
+  - {fileID: 2138373340}
+  - {fileID: 2138373340}
+  - {fileID: 2138373340}
+  - {fileID: 2138373340}
+  - {fileID: 2138373340}
+  - {fileID: 2138373340}
+  - {fileID: 2138373340}
+  - {fileID: 2138373340}
+  - {fileID: 1719071210}
 --- !u!1 &1433361613
 GameObject:
   m_ObjectHideFlags: 0
@@ -8897,7 +8927,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 473644386}
-          m_MethodName: StartPopYes
+          m_MethodName: UnlockedPopYes
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -9256,7 +9286,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -175, y: 115}
+  m_AnchoredPosition: {x: 375, y: 50}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1667786470

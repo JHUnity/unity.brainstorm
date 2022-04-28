@@ -19,13 +19,13 @@ public class MapSizeData
 [System.Serializable]
 public class UnlockStarData
 {
-    public float[] UnlockStageStar;
+    public int[] UnlockStageStar;
 }
 
 [System.Serializable]
 public class UnlockBigStarData
 {
-    public float[] UnlockStageBigStar;
+    public int[] UnlockStageBigStar;
 }
 
 public class GameManager : MonoBehaviour
@@ -50,6 +50,9 @@ public class GameManager : MonoBehaviour
     public MapSizeData[] WorldMaxSize;
     public UnlockStarData[] UnlockWorldStar;
     public UnlockBigStarData[] UnlockWorldBigStar;
+
+    public int[] WorldUnlockStar;
+    public int[] WorldUnlockBigStar;
 
     private static GameManager instance;
     public static GameManager Instance
