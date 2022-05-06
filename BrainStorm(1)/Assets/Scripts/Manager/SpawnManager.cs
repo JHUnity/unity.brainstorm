@@ -13,6 +13,11 @@ public class SpawnManager : MonoBehaviour
 
     public Transform[] Key1;
     public Transform[] Key2;
+    public Transform[] Key3;
+    public Transform[] Key4;
+    public Transform[] Key5;
+    public Transform[] Key6;
+    public Transform[] Key7;
     public Transform[] Shoes;
 
     public Transform[] Feather;
@@ -29,6 +34,11 @@ public class SpawnManager : MonoBehaviour
 
         spawnKey1();
         spawnKey2();
+        spawnKey3();
+        spawnKey4();
+        spawnKey5();
+        spawnKey6();
+        spawnKey7();
         spawnShoes();
 
         spawnFeather();
@@ -72,6 +82,51 @@ public class SpawnManager : MonoBehaviour
         {
             Spawner = objManager.MakeObj("SItem_Key2");
             Spawner.transform.position = Key2[i].position;
+        }
+    }
+
+    void spawnKey3()
+    {
+        for (int i = 0; i < Key3.Length; i++)
+        {
+            Spawner = objManager.MakeObj("SItem_Key3");
+            Spawner.transform.position = Key3[i].position;
+        }
+    }
+
+    void spawnKey4()
+    {
+        for (int i = 0; i < Key4.Length; i++)
+        {
+            Spawner = objManager.MakeObj("SItem_Key4");
+            Spawner.transform.position = Key4[i].position;
+        }
+    }
+
+    void spawnKey5()
+    {
+        for (int i = 0; i < Key5.Length; i++)
+        {
+            Spawner = objManager.MakeObj("SItem_Key5");
+            Spawner.transform.position = Key5[i].position;
+        }
+    }
+
+    void spawnKey6()
+    {
+        for (int i = 0; i < Key6.Length; i++)
+        {
+            Spawner = objManager.MakeObj("SItem_Key6");
+            Spawner.transform.position = Key6[i].position;
+        }
+    }
+
+    void spawnKey7()
+    {
+        for (int i = 0; i < Key7.Length; i++)
+        {
+            Spawner = objManager.MakeObj("SItem_Key7");
+            Spawner.transform.position = Key7[i].position;
         }
     }
 

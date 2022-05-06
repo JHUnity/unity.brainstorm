@@ -188,7 +188,7 @@ public class Player : Unit
 
         }
 
-        if ((Mathf.Abs(rigid.velocity.y) == 0) && anim.GetBool("isJumping") && wallCollision == false)
+        if ((Mathf.Abs(rigid.velocity.y) == 0) && anim.GetBool("isJumping") /*&& wallCollision == false*/)
         {
             anim.SetBool("isJumping", false);
         }
@@ -267,7 +267,7 @@ public class Player : Unit
 
         Invoke("OffDamaged", 2);
     }
-
+    
     void DecreaseHp()
     {
         GameManager.Instance.playerHP = GameManager.Instance.playerHP - 1;

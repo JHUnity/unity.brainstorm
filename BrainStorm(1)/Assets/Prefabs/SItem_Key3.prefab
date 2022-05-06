@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 4f3eb22302fa1be4787f3134fce83ac0, type: 3}
-  m_Color: {r: 1, g: 0.7522607, b: 0.3820755, a: 1}
+  m_Color: {r: 0, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 8860280841248490725}
   - component: {fileID: 4336223645365144171}
   - component: {fileID: 438115256}
-  - component: {fileID: 1360423419766730285}
+  - component: {fileID: -8222002804836287365}
   m_Layer: 15
   m_Name: SItem_Key3
   m_TagString: Item
@@ -191,7 +191,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1360423419766730285
+--- !u!114 &-8222002804836287365
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -200,7 +200,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5841919880990142508}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd8f1ca658570b54f89bb701632094af, type: 3}
+  m_Script: {fileID: 11500000, guid: ba8c4512c1e75174e90159e00595d86e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
