@@ -26,6 +26,30 @@ public class ObjectManager : MonoBehaviour
     public int SItem_Key2Count;
     public GameObject SItem_Key2Prefab;
 
+    GameObject[] SItem_Key3;
+    public int SItem_Key3Count;
+    public GameObject SItem_Key3Prefab;
+
+    GameObject[] SItem_Key4;
+    public int SItem_Key4Count;
+    public GameObject SItem_Key4Prefab;
+
+    GameObject[] SItem_Key5;
+    public int SItem_Key5Count;
+    public GameObject SItem_Key5Prefab;
+
+    GameObject[] SItem_Key6;
+    public int SItem_Key6Count;
+    public GameObject SItem_Key6Prefab;
+
+    GameObject[] SItem_Key7;
+    public int SItem_Key7Count;
+    public GameObject SItem_Key7Prefab;
+
+    GameObject[] SItem_Shoes;
+    public int SItem_ShoesCount;
+    public GameObject SItem_ShoesPrefab;
+
     GameObject[] EItem_Gun;
     public int EItem_GunCount;
     public GameObject EItem_GunPrefab;
@@ -53,6 +77,12 @@ public class ObjectManager : MonoBehaviour
 
         SItem_Key1 = new GameObject[SItem_Key1Count];
         SItem_Key2 = new GameObject[SItem_Key2Count];
+        SItem_Key3 = new GameObject[SItem_Key3Count];
+        SItem_Key4 = new GameObject[SItem_Key4Count];
+        SItem_Key5 = new GameObject[SItem_Key5Count];
+        SItem_Key6 = new GameObject[SItem_Key6Count];
+        SItem_Key7 = new GameObject[SItem_Key7Count];
+        SItem_Shoes = new GameObject[SItem_ShoesCount];
         EItem_Gun = new GameObject[EItem_GunCount];
         EItem_Feather = new GameObject[EItem_FeatherCount];
 
@@ -77,6 +107,12 @@ public class ObjectManager : MonoBehaviour
 
         ItemCreate<Item>(SItem_Key1, SItem_Key1Prefab);
         ItemCreate<Item>(SItem_Key2, SItem_Key2Prefab);
+        ItemCreate<Item>(SItem_Key3, SItem_Key3Prefab);
+        ItemCreate<Item>(SItem_Key4, SItem_Key4Prefab);
+        ItemCreate<Item>(SItem_Key5, SItem_Key5Prefab);
+        ItemCreate<Item>(SItem_Key6, SItem_Key6Prefab);
+        ItemCreate<Item>(SItem_Key7, SItem_Key7Prefab);
+        ItemCreate<Item>(SItem_Shoes, SItem_ShoesPrefab);
         ItemCreate<Item>(EItem_Gun, EItem_GunPrefab);
         ItemCreate<Item>(EItem_Feather, EItem_FeatherPrefab);
 
@@ -128,6 +164,24 @@ public class ObjectManager : MonoBehaviour
                 break;
             case "SItem_Key2":
                 targetpool = SItem_Key2;
+                break;
+            case "SItem_Key3":
+                targetpool = SItem_Key3;
+                break;
+            case "SItem_Key4":
+                targetpool = SItem_Key4;
+                break;
+            case "SItem_Key5":
+                targetpool = SItem_Key5;
+                break;
+            case "SItem_Key6":
+                targetpool = SItem_Key6;
+                break;
+            case "SItem_Key7":
+                targetpool = SItem_Key7;
+                break;
+            case "SItem_Shoes":
+                targetpool = SItem_Shoes;
                 break;
             case "EItem_Gun":
                 targetpool = EItem_Gun;

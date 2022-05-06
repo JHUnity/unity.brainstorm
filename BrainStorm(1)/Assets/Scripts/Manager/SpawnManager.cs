@@ -13,6 +13,7 @@ public class SpawnManager : MonoBehaviour
 
     public Transform[] Key1;
     public Transform[] Key2;
+    public Transform[] Shoes;
 
     public Transform[] Feather;
     public Transform[] Gun;
@@ -28,6 +29,7 @@ public class SpawnManager : MonoBehaviour
 
         spawnKey1();
         spawnKey2();
+        spawnShoes();
 
         spawnFeather();
         spawnGun();
@@ -70,6 +72,15 @@ public class SpawnManager : MonoBehaviour
         {
             Spawner = objManager.MakeObj("SItem_Key2");
             Spawner.transform.position = Key2[i].position;
+        }
+    }
+
+    void spawnShoes()
+    {
+        for (int i = 0; i < Shoes.Length; i++)
+        {
+            Spawner = objManager.MakeObj("SItem_Shoes");
+            Spawner.transform.position = Shoes[i].position;
         }
     }
 

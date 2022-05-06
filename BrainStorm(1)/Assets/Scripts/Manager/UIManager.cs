@@ -10,6 +10,12 @@ public class UIManager : MonoBehaviour
 
     public GameObject Skey1;
     public GameObject Skey2;
+    public GameObject Skey3;
+    public GameObject Skey4;
+    public GameObject Skey5;
+    public GameObject Skey6;
+    public GameObject Skey7;
+    public GameObject SShoes;
 
     public GameObject E_Slot;
     public GameObject EGun;
@@ -73,6 +79,60 @@ public class UIManager : MonoBehaviour
         else
         {
             Skey2.SetActive(false);
+        }
+
+        if (GameManager.Instance.SitemNumber == 3)
+        {
+            Skey3.SetActive(true);
+        }
+        else
+        {
+            Skey3.SetActive(false);
+        }
+
+        if (GameManager.Instance.SitemNumber == 4)
+        {
+            Skey4.SetActive(true);
+        }
+        else
+        {
+            Skey4.SetActive(false);
+        }
+
+        if (GameManager.Instance.SitemNumber == 5)
+        {
+            Skey5.SetActive(true);
+        }
+        else
+        {
+            Skey5.SetActive(false);
+        }
+
+        if (GameManager.Instance.SitemNumber == 6)
+        {
+            Skey6.SetActive(true);
+        }
+        else
+        {
+            Skey6.SetActive(false);
+        }
+
+        if (GameManager.Instance.SitemNumber == 7)
+        {
+            Skey7.SetActive(true);
+        }
+        else
+        {
+            Skey7.SetActive(false);
+        }
+
+        if (GameManager.Instance.SitemNumber == 11)
+        {
+            SShoes.SetActive(true);
+        }
+        else
+        {
+            SShoes.SetActive(false);
         }
     }
 

@@ -176,7 +176,7 @@ public class Player : Unit
             {
                 Vector2 velocityVec = new Vector2(rigid.position.x + i, rigid.position.y);
                 Debug.DrawRay(velocityVec, new Vector3(0, -1, 0), new Color(0, 1, 0, 255));
-                RaycastHit2D rayHit = Physics2D.Raycast(velocityVec, new Vector3(0, -1, 0), 1, LayerMask.GetMask("PlatformColider", "Monster"));
+                RaycastHit2D rayHit = Physics2D.Raycast(velocityVec, new Vector3(0, -1, 0), 1, LayerMask.GetMask("PlatformColider", "Monster", "Spike"));
                 if (rayHit.collider != null)
                 {
                     if (rayHit.distance <= 0.5f)
@@ -204,6 +204,10 @@ public class Player : Unit
         if (collision.gameObject.tag == ("MonsterBullet"))
         {
             OnDamagedBullet();
+        }
+        if (collision.gameObject.tag == ("Spike") && !(GameManager.Instance.SitemNumber == 11))
+        {
+            OnDamagedSpike();
         }
     }
     void OnTriggerEnter2D(Collider2D collision)
@@ -251,6 +255,17 @@ public class Player : Unit
         anim.SetTrigger("isDamaged");
 
         Invoke("OffDamaged", 1);
+    }
+
+    void OnDamagedSpike()
+    {
+        DecreaseHp();
+
+        gameObject.layer = 9;
+        spriteRenderer.color = new Color(1, 1, 1, 0.4f);
+        anim.SetTrigger("isDamaged");
+
+        Invoke("OffDamaged", 2);
     }
 
     void DecreaseHp()

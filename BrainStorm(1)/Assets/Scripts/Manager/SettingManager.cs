@@ -404,7 +404,7 @@ public class SettingManager : MonoBehaviour
         }
 
         //다음 스테이지 해금
-        if(GameManager.Instance.stageIndex < GameManager.Instance.WorldNormalStage[GameManager.Instance.stageIndex])
+        if(GameManager.Instance.stageIndex < GameManager.Instance.WorldNormalStage[GameManager.Instance.worldIndex])
         {
             if (UserManager.Instance.WorldNormalUnlock[GameManager.Instance.worldIndex, GameManager.Instance.stageIndex + 1] == false)
             {

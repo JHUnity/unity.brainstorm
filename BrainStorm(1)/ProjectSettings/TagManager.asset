@@ -17,6 +17,7 @@ TagManager:
   - Door5
   - Door6
   - Door7
+  - Spike
   layers:
   - Default
   - TransparentFX
@@ -35,7 +36,7 @@ TagManager:
   - Monster
   - Item
   - Wall
-  - 
+  - Spike
   - 
   - 
   - 
